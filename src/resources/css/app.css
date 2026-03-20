@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@source "../**/*.blade.php";
+@source "../**/*.tsx";
+@source "../../storage/framework/views/*.php";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+
+@theme {
+    --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+
+    --color-black: #000;
+    --color-primaryGrey: #444;
+    --color-primaryWhite: #ddd;
+    --color-primaryOrange: #EEAC11;
+    --color-primaryOrangeDarker: #E6A40E;
+    --color-primaryOrangeBrighter: #FFC436;
+    --color-primaryOrangeTransparent: #EEAC11AA;
+    --color-navBackground: #000A;
+}
+
+#guestWrapper {
+    background-image: url(/resources/js/Assets/Images/login-background.jpg);
+    background-position: center;
+}
+
+#nprogress .bar {
+    background: var(--color-primaryOrange) !important;
+}
