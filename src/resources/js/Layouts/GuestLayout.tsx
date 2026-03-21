@@ -1,5 +1,5 @@
 
-import heroImg from '@/Assets/Images/rohirrim.webp';
+import heroImg from '@/Assets/Images/husky-logo.webp';
 import { PropsWithChildren } from 'react';
 
 export default function Guest({ children }: PropsWithChildren) {

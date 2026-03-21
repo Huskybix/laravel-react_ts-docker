@@ -19,6 +19,22 @@
     --color-navBackground: #000A;
 }
 
+h1 {
+    font-size: var(--text-3xl);
+}
+
+h2 {
+    font-size: var(--text-2xl);
+}
+
+h3 {
+    font-size: var(--text-xl);
+}
+
+h4 {
+    font-size: var(--text-lg);
+}
+
 #guestWrapper {
     background-image: url(/resources/js/Assets/Images/login-background.jpg);
     background-position: center;
