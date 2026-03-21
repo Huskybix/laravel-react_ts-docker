@@ -7,21 +7,29 @@ class NavigationController extends Controller
 {
     public static function getLinks(): array
     {
-        $user = auth()->user();
-
         $links = [
             ['name' => 'Dashboard', 'route' => 'dashboard'],
             ['name' => 'About', 'route' => 'about'],
-            ['name' => 'Contact', 'route' => 'contact'],
+            ['name' => 'Contact', 'route' => 'contact.show'],
         ];
 
-        if ($user?->role->value >= UserRole::Moderator->value) {
+        $user = auth()->user();
+
+        if (!$user) 
+        {
+            $links = array_merge($links, [['name' => 'Login', 'route' => 'login']]);
+            return $links;
+        }
+
+        if ($user->role->value >= UserRole::Moderator->value) 
+        {
             $links = array_merge($links, [
                 ['name' => 'Reports', 'route' => 'reports'],
             ]);
         }
 
-        if ($user?->role->value >= UserRole::Admin->value) {
+        if ($user->role->value >= UserRole::Admin->value) 
+        {
             $links = array_merge($links, [
                 ['name' => 'Control Panel', 'route' => 'users'],
             ]);

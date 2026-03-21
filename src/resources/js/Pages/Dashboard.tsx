@@ -1,9 +1,8 @@
 import ParallaxLayout from '@/Layouts/ParallaxLayout';
 import { Head } from '@inertiajs/react';
-import { useEffect, useRef, useState } from 'react';
 
-function ParallaxDashboard() {
-
+function ParallaxDashboard() 
+{
     return (
         <div className="relative">
             <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-500 to-blue-200">

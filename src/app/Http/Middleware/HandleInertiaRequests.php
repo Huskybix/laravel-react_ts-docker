@@ -35,8 +35,8 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'navigation' => [
-                'links' => $request->user() ? NavigationController::getLinks() : [],
+            'navigation' => fn() => [
+                'links' => NavigationController::getLinks(),
             ],
         ];
     }
