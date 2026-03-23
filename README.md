@@ -66,7 +66,7 @@ Role is a sliding numerical scale:
 - Run Tinker `docker-compose exec app php artisan tinker`
 
 - Create products with the following format:
-
+```php
 App\Models\Product::create([
     'name' => 'Horizon Pro',
     'category' => 'Analytics',
@@ -74,8 +74,9 @@ App\Models\Product::create([
     'trend_bars' => json_encode([2, 1, 4, 2, 3, 4, 5]),
     'status' => 'Active'
 ]);
+```
 
-Trend bars are a graph where each value is a bar.
+Trend bars are a chart where each value is displayed as a bar.
 
 # Error Fixes
 
