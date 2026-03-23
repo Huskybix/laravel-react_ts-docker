@@ -30,10 +30,9 @@ Everything has been done in a Windows environment, specifically Win10 Home.
 
 # Seeding the database
 
-Reinitialize database: docker compose exec app php artisan migrate:fresh
-Seed products: docker compose exec app php artisan db:seed --class=ProductSeeder
-Seed users: docker compose exec app php artisan db:seed --class=DatabaseSeeder
-All in one: docker compose exec app php artisan migrate:fresh --seed
+- Drop and recreate tables: docker compose exec app php artisan migrate:fresh
+- Manually run a seeder: docker compose exec app php artisan db:seed --class=SeederFileName
+- Run all seeders via DatabaseSeeder: docker compose exec app php artisan migrate:fresh --seed
 
 # Manual Building
 - Run `docker-compose run --rm node npm run build` to build assets, Tailwind, JS, etc manually.
@@ -45,21 +44,23 @@ All in one: docker compose exec app php artisan migrate:fresh --seed
 - Go to http://localhost:8091/
 
 # Manually Adding Users
-- Run Tinker `docker-compose exec app php artisan tinker`
+Run Tinker: `docker compose exec app php artisan tinker`
 
-- Create users with the following format:
-
+Create users with the following format:
+```php
 App\Models\User::create([
     'name' => 'Admin User',
     'email' => 'admin@test.com',
     'password' => bcrypt('password'),
     'role' => 3
 ]);
+```
 
-Role is a sliding scale:
-1 - Standard User
-2 - Moderator
-3 - Admin
+Role is a sliding numerical scale:
+
+- Standard User: 1
+- Moderator: 2
+- Admin: 3
 
 # Manually Adding Products
 - Run Tinker `docker-compose exec app php artisan tinker`
