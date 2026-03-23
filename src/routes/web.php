@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ReportsController;
 
 Route::get('/', function () {
     return Inertia::render('Dashboard', [
@@ -29,7 +30,7 @@ Route::get('/about', fn() => Inertia::render('About'))->name('about');
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware('role:' . UserRole::Moderator->value)->group(function () {
-        Route::get('/reports', fn() => Inertia::render('Reports'))->name('reports');
+        Route::get('/reports', [ReportsController::class, 'index'])->name('reports');
     });
 
     Route::middleware('role:' . UserRole::Admin->value)->group(function () {

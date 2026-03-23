@@ -28,6 +28,13 @@ Everything has been done in a Windows environment, specifically Win10 Home.
 # Initial
 - Run `docker-compose run --rm node npm install` to install Node packages
 
+# Seeding the database
+
+Reinitialize database: docker compose exec app php artisan migrate:fresh
+Seed products: docker compose exec app php artisan db:seed --class=ProductSeeder
+Seed users: docker compose exec app php artisan db:seed --class=DatabaseSeeder
+All in one: docker compose exec app php artisan migrate:fresh --seed
+
 # Manual Building
 - Run `docker-compose run --rm node npm run build` to build assets, Tailwind, JS, etc manually.
 
@@ -37,7 +44,7 @@ Everything has been done in a Windows environment, specifically Win10 Home.
 # Accessing Site
 - Go to http://localhost:8091/
 
-# Adding Users
+# Manually Adding Users
 - Run Tinker `docker-compose exec app php artisan tinker`
 
 - Create users with the following format:
@@ -53,6 +60,21 @@ Role is a sliding scale:
 1 - Standard User
 2 - Moderator
 3 - Admin
+
+# Manually Adding Products
+- Run Tinker `docker-compose exec app php artisan tinker`
+
+- Create products with the following format:
+
+App\Models\Product::create([
+    'name' => 'Horizon Pro',
+    'category' => 'Analytics',
+    'revenue' => 84200,
+    'trend_bars' => json_encode([2, 1, 4, 2, 3, 4, 5]),
+    'status' => 'Active'
+]);
+
+Trend bars are a graph where each value is a bar.
 
 # Error Fixes
 
