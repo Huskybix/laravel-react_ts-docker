@@ -6,7 +6,7 @@ export default function About()
     return (
         <MainLayout
             header={
-                <h1 className="text-xl font-semibold leading-tight text-black">
+                <h1 className="text-xl font-semibold leading-tight">
                     About Me
                 </h1>
             }

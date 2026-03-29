@@ -31,7 +31,7 @@ export default function Contact()
     return (
         <MainLayout
             header={
-                <h1 className="text-xl font-semibold leading-tight text-black">
+                <h1 className="text-xl font-semibold leading-tight">
                     Contact Me
                 </h1>
             }
@@ -45,19 +45,20 @@ export default function Contact()
 
                 <form onSubmit={handleSubmit} className="space-y-6 w-full">
                     <div>
-                        <InputLabel htmlFor="name" value="Name" />
+                        <InputLabel htmlFor="name" value="Name" className="text-primaryOrange" />
                         <TextInput
                             id="name"
                             className="mt-1 block w-full"
                             value={data.name}
                             onChange={e => setData('name', e.target.value)}
                             autoComplete="name"
+                            hasError={!!errors.name}
                         />
                         <InputError message={errors.name} className="mt-2" />
                     </div>
 
                     <div>
-                        <InputLabel htmlFor="email" value="Your email" />
+                        <InputLabel htmlFor="email" value="Your email" className="text-primaryOrange" />
                         <TextInput
                             id="email"
                             type="email"
@@ -65,29 +66,33 @@ export default function Contact()
                             value={data.email}
                             onChange={e => setData('email', e.target.value)}
                             autoComplete="email"
+                            hasError={!!errors.email}
                         />
                         <InputError message={errors.email} className="mt-2" />
                     </div>
 
                     <div>
-                        <InputLabel htmlFor="subject" value="Subject" />
+                        <InputLabel htmlFor="subject" value="Subject" className="text-primaryOrange" />
                         <TextInput
                             id="subject"
                             className="mt-1 block w-full"
                             value={data.subject}
+                            hasError={!!errors.subject}
                             onChange={e => setData('subject', e.target.value)}
                         />
                         <InputError message={errors.subject} className="mt-2" />
                     </div>
 
                     <div>
-                        <InputLabel htmlFor="message" value="Message" />
+                        <InputLabel htmlFor="message" value="Message" className="text-primaryOrange" />
                         <textarea
                             id="message"
                             rows={6}
                             value={data.message}
                             onChange={e => setData('message', e.target.value)}
-                            className="mt-1 block w-full resize-none rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            className={`mt-1 block w-full resize-none rounded-md border-4 border-gray-300 shadow-sm focus:border-primaryOrange focus:ring-transparent text-black ${
+                                errors.message ? 'border-red-500 focus:border-red-500' : ''
+                            }`}
                         />
                         <InputError message={errors.message} className="mt-2" />
                     </div>

@@ -38,9 +38,9 @@ export default function Login({
                 </div>
             )}
 
-            <form className="flex flex-col gap-4" onSubmit={submit}>
+            <form className="flex flex-col gap-4 bg-navBackground p-4 rounded-xl" onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="email" value="Email" />
+                    <InputLabel htmlFor="email" value="Email" className="text-primaryOrange" />
 
                     <TextInput
                         id="email"
@@ -49,6 +49,7 @@ export default function Login({
                         value={data.email}
                         className="mt-1 block w-full"
                         autoComplete="username"
+                        hasError={!!errors.email}
                         isFocused={true}
                         onChange={(e) => setData('email', e.target.value)}
                     />
@@ -57,7 +58,7 @@ export default function Login({
                 </div>
 
                 <div>
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value="Password" className="text-primaryOrange" />
 
                     <TextInput
                         id="password"
@@ -66,6 +67,7 @@ export default function Login({
                         value={data.password}
                         className="mt-1 block w-full"
                         autoComplete="current-password"
+                        hasError={!!errors.password}
                         onChange={(e) => setData('password', e.target.value)}
                     />
 
@@ -95,10 +97,7 @@ export default function Login({
 
                 <div className="mt-4 flex items-center justify-end">
                     {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        >
+                        <Link href={route('password.request')} className="rounded-md text-sm text-primaryOrange underline hover:text-primaryOrangeBrighter focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                             Forgot your password?
                         </Link>
                     )}

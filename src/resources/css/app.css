@@ -21,6 +21,7 @@
 
 h1 {
     font-size: var(--text-3xl);
+    color: var(--color-primaryOrange);
 }
 
 h2 {
