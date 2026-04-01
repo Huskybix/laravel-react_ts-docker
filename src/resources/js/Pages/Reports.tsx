@@ -28,7 +28,9 @@ const BAR_HEIGHTS: Record<number, string> = {
     1: 'h-1', 2: 'h-2', 3: 'h-3', 4: 'h-4', 5: 'h-5',
 };
 
-//This page works by pulling data from the database via ReportsController, iterating over it on a per product basis
+/* 
+    TODO: Fix styling, rework items to differentiate them from shop products
+*/
 
 export default function Reports({ products }: Props) {
     return (
