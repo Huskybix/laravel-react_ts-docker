@@ -9,7 +9,7 @@ export default function Main({
     const user = usePage().props.auth.user;
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col pt-36 w-full items-center px-12">
+        <div id="mainWrapper" className="min-h-screen bg-gray-100 flex flex-col pt-36 w-full items-center px-12">
                 
             <NavBar active={false}></NavBar>
 

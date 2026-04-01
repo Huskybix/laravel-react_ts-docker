@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ShopController;
 
 Route::get('/', function () {
     return Inertia::render('Dashboard', [
@@ -26,6 +27,7 @@ Route::get('/login', function () {
 });
 
 Route::get('/about', fn() => Inertia::render('About'))->name('about');
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

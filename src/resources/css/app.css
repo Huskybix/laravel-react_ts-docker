@@ -13,7 +13,7 @@
     --color-primaryGrey: #444;
     --color-primaryWhite: #ddd;
     --color-primaryOrange: #EEAC11;
-    --color-primaryOrangeDarker: #E6A40E;
+    --color-primaryOrangeDarker: #D6940E;
     --color-primaryOrangeBrighter: #FFC436;
     --color-primaryOrangeTransparent: #EEAC11AA;
     --color-navBackground: #000A;
@@ -34,6 +34,10 @@ h3 {
 
 h4 {
     font-size: var(--text-lg);
+}
+
+#mainWrapper {
+    background: linear-gradient(135deg, #667000 0%, #764ba2 100%);
 }
 
 #guestWrapper {
