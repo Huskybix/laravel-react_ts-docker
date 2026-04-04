@@ -4,6 +4,7 @@ import { PropsWithChildren, ReactNode, useState } from 'react';
 import { PageProps, NavLink as NavLinkType } from '@/types';
 import Dropdown from './Dropdown';
 import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 
 export default function NavBar({
     active = false,
@@ -17,7 +18,7 @@ export default function NavBar({
     const user = usePage().props.auth.user;
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-40 border-b border-black bg-navBackground backdrop-blur-sm p-6">
+        <nav className="fixed top-0 left-0 right-0 z-40 bg-navBackground backdrop-blur-sm p-6 h-[5.75rem]">
             <div className="flex flex-row gap-4 md:flex-row items-center justify-between">
                 <button className="py-1.25 md:hidden text-gray-300 border border-transparent hover:text-white focus-visible:outline-none focus-visible:border-white rounded-sm" onClick={() => setMenuOpen(prev => !prev)} aria-label="Toggle menu">
                     {menuOpen ? (
@@ -72,11 +73,27 @@ export default function NavBar({
                         </div>
                     </div>
                 ) : (
-                    <a href="/register">
-                        <PrimaryButton className="ms-4">
-                            Register Account
-                        </PrimaryButton>
-                    </a>
+                    <>
+                    {route().current('shop.index') && (
+                        <SecondaryButton
+                            id="cartToggle"
+                            className="bg-gray-100 text-black p-2 rounded-md min-w-max cursor-pointer hover:bg-gray-200"
+                            onClick={() => {
+                                if (window.innerWidth >= 1024) {
+                                    document.getElementById('cartContainer')?.classList.toggle('lg:!block');
+                                    document.getElementById('mainWrapper')?.classList.toggle('items-center');
+                                } else {
+                                    window.location.href = '/cart';
+                                }
+                            }}
+                        >
+                            View Cart
+                        </SecondaryButton>
+                    )}
+                    <PrimaryButton className="ms-4 min-w-max" onClick={() => window.location.href = '/register'}>
+                        Register Account
+                    </PrimaryButton>
+                    </>
                 )}
             </div>
         </nav>

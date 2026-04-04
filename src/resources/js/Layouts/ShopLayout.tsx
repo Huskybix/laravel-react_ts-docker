@@ -11,18 +11,15 @@ export default function Main({
     return (
         <div id="mainWrapper" className="min-h-screen bg-gray-100 flex flex-col pt-36 w-full items-center px-12">
                 
-            <NavBar active={false}></NavBar>
-
-            <div id="mainInner" className="flex flex-col gap-4 bg-navBackground rounded-xl p-8 shadow w-full lg:max-w-2/3 xl:max-w-3/4 w-full text-white">
-                
+            <NavBar active={false}></NavBar> 
                 {header && (
                     <header>{header}</header>
                 )}
-                <main className="w-full">
+            <div className="flex flex-col gap-4 bg-navBackground rounded-xl p-8 shadow max-w-6xl w-full text-white">
+                <main className="w-full relative">
                     {children}
                 </main>
-            </div>
-
+                </div>
         </div>
     );
 }

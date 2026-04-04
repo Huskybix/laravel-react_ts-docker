@@ -1,4 +1,5 @@
 import { useCartStore } from '@/Stores/useCartStore'
+import SecondaryButton from './SecondaryButton'
 
 export default function Cart() {
     const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice } = useCartStore()
@@ -18,9 +19,9 @@ export default function Cart() {
                 <h2 className="font-semibold text-gray-800">
                     Cart ({totalItems()} {totalItems() === 1 ? 'item' : 'items'})
                 </h2>
-                <button onClick={clearCart} className="text-xs text-red-800 hover:text-red-700 cursor-pointer">
-                    Clear Cart
-                </button>
+                <SecondaryButton onClick={clearCart} className="text-xs max-w-max !p-2">
+                    Clear
+                </SecondaryButton>
             </div>
                 {/* TODO: Move cart into a fixed sidebar */}
                 {items.map(item => (
@@ -58,6 +59,10 @@ export default function Cart() {
                 <span className="font-semibold text-gray-700">Total</span>
                 <span className="font-bold text-lg">${totalPrice().toFixed(2)}</span>
             </div>
+
+            <SecondaryButton className="w-full mt-4 ">
+                Proceed to Checkout
+            </SecondaryButton>
         </div>
     )
 }
