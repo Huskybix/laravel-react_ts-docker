@@ -1,5 +1,6 @@
 import { useCartStore } from '@/Stores/useCartStore'
 import SecondaryButton from './SecondaryButton'
+import PrimaryButton from './PrimaryButton'
 
 export default function Cart() {
     const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice } = useCartStore()
@@ -23,7 +24,6 @@ export default function Cart() {
                     Clear
                 </SecondaryButton>
             </div>
-                {/* TODO: Move cart into a fixed sidebar */}
                 {items.map(item => (
                     <div key={item.id} className="flex flex-row bg-white p-4 items-center">
 
@@ -56,12 +56,16 @@ export default function Cart() {
                 ))}
 
             <div className="bg-primaryOrange px-4 py-3 flex justify-between items-center">
-                <span className="font-semibold text-gray-700">Total</span>
+                <span className="font-bold text-gray-800">Total</span>
                 <span className="font-bold text-lg">${totalPrice().toFixed(2)}</span>
             </div>
-
-            <SecondaryButton className="w-full mt-4 ">
+            
+            <PrimaryButton className="!w-full mt-4" onClick={() => { window.location.href = '/shop/checkout'; }}>
                 Proceed to Checkout
+            </PrimaryButton>
+
+            <SecondaryButton className="w-full mt-4" onClick={() => { window.location.href = '/shop/cart'; }}>
+                Go to Cart
             </SecondaryButton>
         </div>
     )

@@ -28,6 +28,7 @@ Route::get('/login', function () {
 
 Route::get('/about', fn() => Inertia::render('About'))->name('about');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/shop/cart', fn() => Inertia::render('Shop/Cart'))->name('shop.cart');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

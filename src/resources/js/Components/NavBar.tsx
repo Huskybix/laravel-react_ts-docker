@@ -83,7 +83,7 @@ export default function NavBar({
                                     document.getElementById('cartContainer')?.classList.toggle('lg:!block');
                                     document.getElementById('mainWrapper')?.classList.toggle('items-center');
                                 } else {
-                                    window.location.href = '/cart';
+                                    window.location.href = '/shop/cart';
                                 }
                             }}
                         >

@@ -52,7 +52,7 @@ export default function ShopIndex({ auth, products }: Props) {
                                     <h3 className="font-semibold text-gray-800 m-4">{product.name}</h3>
 
                                     <div className="mt-auto">
-                                        <p className="text-indigo-600 font-bold mt-1 px-4">${product.price.toFixed(2)}</p>
+                                        <p className="text-indigo-600 font-bold mt-1 px-4 text-xl">${product.price.toFixed(2)}</p>
 
                                         <button onClick={() => addItem(product)} className="mt-3 w-full bg-primaryOrange hover:bg-primaryOrangeDarker cursor-pointer text-gray-800 text-sm font-medium py-2 px-4 transition-colors ">
                                             {qty > 0 ? `Add another (${qty} in cart)` : 'Add to Cart'}
