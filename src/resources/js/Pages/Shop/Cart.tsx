@@ -47,31 +47,34 @@ export default function Cart() {
             </div>
             <div>
                 {items.map(item => (
-                    <div key={item.id} className="flex flex-row bg-gray-100 p-4 items-center last:rounded-b-lg">
+                    <div key={item.id} className="flex flex-col lg:flex-row bg-gray-100 p-4 lg:items-center last:rounded-b-lg">
 
-                        <div className="flex flex-row items-center max-w-1/2 gap-4">
+                        <div className="flex flex-row lg:items-center w-full gap-4">
                             {item.image && (
                                 <img src={item.image} alt={item.name} className="w-36 h-36 rounded object-cover" />
                             )}
 
-                            <div className="flex-1 min-w-0">
-                                <p className="text-lg font-medium text-gray-800 truncate">{item.name}</p>
-                                <p className="text-lg text-gray-500">${(item.price * item.quantity).toFixed(2)}</p>
-                            </div>
-                        </div>
+                            <div className="flex flex-col lg:flex-row lg:justify-between w-full">
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-lg font-medium text-gray-800">{item.name}</p>
+                                    <p className="text-lg text-gray-500">${(item.price * item.quantity).toFixed(2)}</p>
+                                </div>
+                            
 
-                        <div className="ml-auto flex flex-col gap-2 items-center min-w-max">
-                            <div className="flex items-center gap-1 text-gray-800">
-                                <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-6 h-6 rounded border text-gray-600 hover:bg-gray-100 cursor-pointer">
-                                    −
-                                </button>
-                                <span className="w-6 text-center">{item.quantity}</span>
-                                <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="w-6 h-6 rounded border text-gray-600 hover:bg-gray-100 cursor-pointer">
-                                    +
-                                </button>
-                            </div>
+                                <div className="flex flex-col gap-2 items-center w-max mt-auto">
+                                    <div className="flex items-center gap-1 text-gray-800">
+                                        <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="px-2 py-0.5 rounded-md border text-gray-600 hover:bg-gray-100 cursor-pointer">
+                                            −
+                                        </button>
+                                        <span className="w-12 text-center">{item.quantity}</span>
+                                        <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="px-2 py-0.5 rounded-md border text-gray-600 hover:bg-gray-100 cursor-pointer">
+                                            +
+                                        </button>
+                                    </div>
 
-                            <button onClick={() => removeItem(item.id)} className="w-full p-2 rounded border text-gray-600 hover:bg-gray-100 text-sm cursor-pointer">Remove</button>
+                                    <button onClick={() => removeItem(item.id)} className="w-full px-2 py-1 rounded-md border text-gray-600 hover:bg-gray-100 text-sm cursor-pointer">Remove</button>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
