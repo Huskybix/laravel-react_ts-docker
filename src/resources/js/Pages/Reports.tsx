@@ -5,7 +5,7 @@ import { Head } from '@inertiajs/react';
 
 type Status = 'Active' | 'Review' | 'Paused';
 
-interface Product {
+interface Report {
     id: number;
     name: string;
     category: string;
@@ -15,7 +15,7 @@ interface Product {
 }
 
 interface Props {
-    products: Product[];
+    reports: Report[];
 }
 
 const STATUS_STYLES: Record<Status, { wrapper: string; dot: string }> = {
@@ -29,10 +29,10 @@ const BAR_HEIGHTS: Record<number, string> = {
 };
 
 /* 
-    TODO: Fix styling, rework items to differentiate them from shop products
+    TODO: Fix styling, rework items to differentiate them from shop reports
 */
 
-export default function Reports({ products }: Props) {
+export default function Reports({ reports }: Props) {
     return (
         <MainLayout
             header={
@@ -50,7 +50,7 @@ export default function Reports({ products }: Props) {
 
                         {/* Header */}
                         <div className="[display:contents]">
-                            {['Product', 'Category', 'Revenue', 'Trend', 'Status'].map((col) => (
+                            {['Report', 'Category', 'Revenue', 'Trend', 'Status'].map((col) => (
                                 <div key={col} className="px-4 py-2.5 bg-gray-50 border-b border-gray-200 text-sm font-medium tracking-widest uppercase text-gray-400">
                                     {col}
                                 </div>
@@ -58,30 +58,30 @@ export default function Reports({ products }: Props) {
                         </div>
 
                         {/* Rows */}
-                        {products.map((product, i) => {
-                            const isLast = i === products.length - 1;
+                        {reports.map((report, i) => {
+                            const isLast = i === reports.length - 1;
                             const border = isLast ? '' : 'border-b border-gray-100';
                             const cell = `px-4 py-3 flex items-center ${border} group-hover:bg-gray-50 transition-colors`;
-                            const status = STATUS_STYLES[product.status];
+                            const status = STATUS_STYLES[report.status];
 
                             return (
-                                <div key={product.id} className="[display:contents] group">
+                                <div key={report.id} className="[display:contents] group">
 
                                     <div className={`${cell} font-medium text-gray-800`}>
-                                        {product.name}
+                                        {report.name}
                                     </div>
 
                                     <div className={`${cell} text-gray-400`}>
-                                        {product.category}
+                                        {report.category}
                                     </div>
 
                                     <div className={`${cell} justify-end text-gray-700`}>
-                                        ${product.revenue.toLocaleString()}
+                                        ${report.revenue.toLocaleString()}
                                     </div>
 
                                     <div className={`${cell} justify-center`}>
                                         <div className="flex items-end gap-0.5 h-5">
-                                            {product.trend_bars.map((val, j) => (
+                                            {report.trend_bars.map((val, j) => (
                                                 <span
                                                     key={j}
                                                     className={`w-1 rounded-sm ${BAR_HEIGHTS[val]} ${
@@ -97,7 +97,7 @@ export default function Reports({ products }: Props) {
                                     <div className={`${cell} justify-center`}>
                                         <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-sm font-medium ${status.wrapper}`}>
                                             <span className={`w-1.5 h-1.5 rounded-full ${status.dot}`} />
-                                            {product.status}
+                                            {report.status}
                                         </span>
                                     </div>
 

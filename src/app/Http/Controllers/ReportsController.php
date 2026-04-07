@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Report;
 use Inertia\Inertia;
 
 class ReportsController extends Controller
@@ -10,7 +10,7 @@ class ReportsController extends Controller
     public function index()
     {
         return Inertia::render('Reports', [
-            'products' => Product::all(),
+            'reports' => Report::all(),
         ]);
     }
 }
