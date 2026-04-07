@@ -30,9 +30,9 @@ Everything has been done in a Windows environment, specifically Win10 Home.
 
 # Seeding the database
 
-- Drop and recreate tables: docker compose exec app php artisan migrate:fresh
-- Manually run a seeder: docker compose exec app php artisan db:seed --class=SeederFileName
-- Run all seeders via DatabaseSeeder: docker compose exec app php artisan migrate:fresh --seed
+- Drop and recreate all tables empty: `docker compose exec app php artisan migrate:fresh`
+- Manually run a seeder: `docker compose exec app php artisan db:seed --class=SeederFileName`
+- Drop all tables and run all seeders via DatabaseSeeder: `docker compose exec app php artisan migrate:fresh --seed`
 
 # Manual Building
 - Run `docker-compose run --rm node npm run build` to build assets, Tailwind, JS, etc manually.
