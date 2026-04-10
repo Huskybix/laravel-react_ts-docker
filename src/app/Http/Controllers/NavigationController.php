@@ -12,6 +12,7 @@ class NavigationController extends Controller
             ['name' => 'About', 'route' => 'about'],
             ['name' => 'Contact', 'route' => 'contact.show'],
             ['name' => 'Shop', 'route' => 'shop.index'],
+            ['name' => 'Portfolio', 'route' => 'portfolio'],
         ];
 
         $user = auth()->user();
