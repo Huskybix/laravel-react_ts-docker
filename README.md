@@ -9,6 +9,7 @@ Everything has been done in a Windows environment, specifically Win10 Home.
 # Docker with standard WSL2
 - Install Docker Desktop
 - In Powershell, navigate to the main project folder `docker-laravel`
+- Adjust `.env` file to point to the database as defined in `docker-compose.yml`
 - Run docker commands to start/stop container
     - Boot container: `docker-compose up -d`
     - Close container: `docker-compose down`
