@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Http;
 
 class ContactController extends Controller
 {
-    public function show(): Response
+    public function index(): Response
     {
         return Inertia::render('Contact');
     }

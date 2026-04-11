@@ -31,6 +31,9 @@ Route::get('/portfolio', fn() => Inertia::render('Portfolio'))->name('portfolio'
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/shop/cart', fn() => Inertia::render('Shop/Cart'))->name('shop.cart');
 
+Route::get('/shop/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/shop/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware('role:' . UserRole::Moderator->value)->group(function () {
@@ -46,7 +49,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 require __DIR__.'/auth.php';

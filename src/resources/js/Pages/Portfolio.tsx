@@ -31,9 +31,9 @@ export default function Portfolio()
                     </div>
                     <h3 className="font-semibold mt-4">About</h3>
                     <span className="flex flex-col gap-1">
-                        <p>A from-scratch portfolio and personal website project to prove full-stack PHP competency outside of commercial work.</p>
-                        <p>It features a variety of useful concepts and skills, such as utilizing Zustand state management for an online store, user logins and management, dynamic navigation choices based on user role, and a fully responsive design.</p>
-                        <p>I've developed it fully containerized using Docker from the start to so I could improve with the technology, as prior to this I've only used it for Azurite file storage for a different project along with a few minor dabblings here and there.</p>
+                        <p>A hand crafted portfolio and personal website project to prove my PHP, Laravel and React competency outside of commercial work.</p>
+                        <p>It features a variety of useful concepts and skills put to practice, such as utilizing Zustand state management for an online store, user logins and management, dynamic navigation choices based on user role, and a fully responsive design.</p>
+                        <p>I also developed it within a Docker container from inception as a method of properly learning that technology, as prior to this I've only Docker for Azurite file storage on a different project aside from a few minor dabblings here and there.</p>
                         <p>The code for this site is available to view on my <a href="https://github.com/Huskybix/laravel-react_ts-docker/" target="_blank" className="text-primaryOrange hover:underline">GitHub</a>.</p>
                     </span>
 
