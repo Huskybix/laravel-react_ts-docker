@@ -46,7 +46,7 @@ export default function Portfolio()
                 </div>
                 <hr className="border-gray-300" />
                 <div className="flex flex-col gap-2">
-                    <h2 className="font-bold text-primaryOrange">Stable Microsystems</h2>
+                    <h2 className="font-bold text-primaryOrange">Stable Micro Systems</h2>
 
                     <h3 className="font-semibold mt-4">Tech Stack</h3>
                     <div className="flex flex-row flex-wrap gap-2">
@@ -64,7 +64,7 @@ export default function Portfolio()
                         <a href="https://www.stablemicrosystems.com" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                             Site Home
                         </a>
-                        <p>Stable Microsystems is a fairly expansive website leveraging the Umbraco platform, which is a .NET Core based content management system.</p>
+                        <p>Stable Micro Systems is a fairly expansive website leveraging the Umbraco platform, which is a .NET Core based content management system.</p>
                         <p>Tailwind and vanilla Javascript are leveraged extensively across the whole project, with the latter being employed to power the image galleries, rotating banners, blog home and the filterable product index, plus other smaller interactive elements.</p>
                         <p>Umbraco utilizes Angular for its back-end CMS templates, and I was involved in ensuring these were implemented correctly. This was largely to ensure custom components displayed fully in the editor, as otherwise they would only display titles or plain text in most cases.</p>
                     </span>
@@ -157,7 +157,7 @@ export default function Portfolio()
                         <p>Firebrand training is another Umbraco website I worked on which was geared more toward sales and course booking.</p>
                         <p>The site has since changed hands, but the core architecture our team built remains largely intact.</p>
                         <p>The main difficulty factor in developing for Firebrand was the vast number of regions they served, and a need for both region specific data and translations while maintaining consistency and usability. Due to them having such a large volume of stored data, a robust and well planned API was essential, and we had to ensure that we only ever accessed what we needed in order to maintain performance and a solid user experience.</p>
-                        <p>As with Stable Microsystems, Umbraco utilizes Angular for its back-end CMS templating and I worked on those here as well.</p>
+                        <p>As with Stable Micro Systems, Umbraco utilizes Angular for its back-end CMS templating and I worked on those here as well.</p>
                     </span>
                 </div>
                 <hr className="border-gray-300" />
