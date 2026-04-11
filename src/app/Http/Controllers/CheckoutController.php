@@ -12,7 +12,7 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Shop/Cart');
+        return Inertia::render('Shop/Checkout');
     }
 
     public function store(Request $request)

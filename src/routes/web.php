@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CheckoutController;
 
 Route::get('/', function () {
     return Inertia::render('Dashboard', [

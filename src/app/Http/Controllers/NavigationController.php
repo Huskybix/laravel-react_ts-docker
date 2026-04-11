@@ -12,7 +12,7 @@ class NavigationController extends Controller
             ['name' => 'About', 'route' => 'about'],
             ['name' => 'Portfolio', 'route' => 'portfolio'],
             ['name' => 'Shop Example', 'route' => 'shop.index'],
-            ['name' => 'Contact', 'route' => 'contact.show'],
+            ['name' => 'Contact', 'route' => 'contact.index'],
             
             
         ];

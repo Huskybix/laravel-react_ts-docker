@@ -37,6 +37,14 @@ export default function Cart() {
     const submit = (e: React.FormEvent) => {
         e.preventDefault()
         post(route('checkout.store'), {
+            data: {
+                ...data,
+                items: items.map(item => ({
+                    id: item.id,
+                    quantity: item.quantity,
+                    price: item.price,
+                })),
+            },
             onSuccess: () => clearCart(),
         })
     }
@@ -173,7 +181,7 @@ export default function Cart() {
 
             <div className="flex justify-start">
                 <PrimaryButton type="submit" disabled={processing} className="w-max p-4 mt-4 !text-base">
-                    Finalize Order
+                    Finalize
                 </PrimaryButton>
             </div>
         </form>
