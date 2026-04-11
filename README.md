@@ -69,6 +69,20 @@ Role is a sliding numerical scale:
 - Create products with the following format:
 ```php
 App\Models\Product::create([
+    'name' => 'Example Product',
+    'price' => 7.99,
+    'image' => 'https://placehold.co/300x300',
+    'stock' => 32,
+    'enabled' => true,
+]);
+```
+
+# Manually Adding Reports
+- Run Tinker `docker-compose exec app php artisan tinker`
+
+- Create reports with the following format:
+```php
+App\Models\Report::create([
     'name' => 'Horizon Pro',
     'category' => 'Analytics',
     'revenue' => 84200,

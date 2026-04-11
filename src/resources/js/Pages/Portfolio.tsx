@@ -34,7 +34,7 @@ export default function Portfolio()
                         <p>A from-scratch portfolio and personal website project to prove full-stack PHP competency outside of commercial work.</p>
                         <p>It features a variety of useful concepts and skills, such as utilizing Zustand state management for an online store, user logins and management, dynamic navigation choices based on user role, and a fully responsive design.</p>
                         <p>I've developed it fully containerized using Docker from the start to so I could improve with the technology, as prior to this I've only used it for Azurite file storage for a different project along with a few minor dabblings here and there.</p>
-                        <p>Fun fact! I'm currently hosting this site myself on an Intel NUC mini PC running Ubuntu Server.</p>
+                        <p>The code for this site is available to view on my <a href="https://github.com/Huskybix/laravel-react_ts-docker/" target="_blank" className="text-primaryOrange hover:underline">GitHub</a>.</p>
                     </span>
 
                     <h3 className="font-semibold mt-4">The Shop</h3>
