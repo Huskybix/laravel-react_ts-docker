@@ -14,11 +14,10 @@ export default function Portfolio()
             <Head title="Portfolio" />
             
             <div className="flex flex-col gap-8">
-                <hr className="border-gray-300" />
                 <div className="flex flex-col gap-2">
                     <h2 className="font-bold text-primaryOrange">This Website</h2>
                     <h3 className="font-semibold mt-4">Tech Stack</h3>
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row flex-wrap gap-2">
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Laravel</span>
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">React</span>
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Typescript</span>
@@ -37,13 +36,20 @@ export default function Portfolio()
                         <p>I've developed it fully containerized using Docker from the start to so I could improve with the technology, as prior to this I've only used it for Azurite file storage for a different project along with a few minor dabblings here and there.</p>
                         <p>Fun fact! I'm currently hosting this site myself on an Intel NUC mini PC running Ubuntu Server.</p>
                     </span>
+
+                    <h3 className="font-semibold mt-4">The Shop</h3>
+                    <span className="flex flex-col gap-1">
+                        <p>The shop uses a state management library for React called Zustand in order to implement a persistent cart.</p>
+                        <p>Running in tandem with this is a piece of middleware in the form of a Zustand hook, which validates the cart whenever a user changes page or attempts to check out. This ensures the app is aware of stock levels at all times and can actively remove items from a cart should they no longer be available.</p>
+                        <p>In addition to the sidebar cart, a full screen cart is available via a link on desktop, or forced automatically on smaller devices. This ensures the cart stays responsive to ensure a solid user experience.</p>
+                    </span>
                 </div>
                 <hr className="border-gray-300" />
                 <div className="flex flex-col gap-2">
                     <h2 className="font-bold text-primaryOrange">Stable Microsystems</h2>
 
                     <h3 className="font-semibold mt-4">Tech Stack</h3>
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row flex-wrap gap-2">
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
@@ -58,7 +64,7 @@ export default function Portfolio()
                         <a href="https://www.stablemicrosystems.com" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                             Site Home
                         </a>
-                        <p>Stable Micro Systems is a fairly expansive website leveraging the Umbraco platform, which is a .NET Core based content management system.</p>
+                        <p>Stable Microsystems is a fairly expansive website leveraging the Umbraco platform, which is a .NET Core based content management system.</p>
                         <p>Tailwind and vanilla Javascript are leveraged extensively across the whole project, with the latter being employed to power the image galleries, rotating banners, blog home and the filterable product index, plus other smaller interactive elements.</p>
                         <p>Umbraco utilizes Angular for its back-end CMS templates, and I was involved in ensuring these were implemented correctly. This was largely to ensure custom components displayed fully in the editor, as otherwise they would only display titles or plain text in most cases.</p>
                     </span>
@@ -105,14 +111,14 @@ export default function Portfolio()
                 <div className="flex flex-col gap-2">
                     <h2 className="font-bold text-primaryOrange">BCS Careers Quiz Microsite</h2>
                     <h3 className="font-semibold mt-4">Key Pages</h3>
-                    <a href="https://www.bcs.org/it-careers/tech-career-quiz/" target="_blank" className="underline cursor-pointer">
+                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Main Page
                     </a>
-                    <a href="https://www.bcs.org/it-careers/tech-career-quiz/quiz/" target="_blank" className="underline cursor-pointer">
+                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Quiz Applet
                     </a>
                     <h3 className="font-semibold mt-4">Tech Stack</h3>
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row flex-wrap gap-2">
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Vue.js</span>
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
@@ -132,11 +138,11 @@ export default function Portfolio()
                 <div className="flex flex-col gap-2">
                     <h2 className="font-bold text-primaryOrange">Firebrand Training</h2>
                     <h3 className="font-semibold mt-4">Key Pages</h3>
-                    <a href="https://firebrand.training/" target="_blank" className="underline cursor-pointer">
+                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Main Website
                     </a>
                     <h3 className="font-semibold mt-4">Tech Stack</h3>
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row flex-wrap gap-2">
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
                         <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
@@ -151,7 +157,7 @@ export default function Portfolio()
                         <p>Firebrand training is another Umbraco website I worked on which was geared more toward sales and course booking.</p>
                         <p>The site has since changed hands, but the core architecture our team built remains largely intact.</p>
                         <p>The main difficulty factor in developing for Firebrand was the vast number of regions they served, and a need for both region specific data and translations while maintaining consistency and usability. Due to them having such a large volume of stored data, a robust and well planned API was essential, and we had to ensure that we only ever accessed what we needed in order to maintain performance and a solid user experience.</p>
-                        <p>As with Stable Micro Systems, Umbraco utilizes Angular for its back-end CMS templating and I worked on those here as well.</p>
+                        <p>As with Stable Microsystems, Umbraco utilizes Angular for its back-end CMS templating and I worked on those here as well.</p>
                     </span>
                 </div>
                 <hr className="border-gray-300" />

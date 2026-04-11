@@ -10,9 +10,11 @@ class NavigationController extends Controller
         $links = [
             ['name' => 'Dashboard', 'route' => 'dashboard'],
             ['name' => 'About', 'route' => 'about'],
-            ['name' => 'Contact', 'route' => 'contact.show'],
-            ['name' => 'Shop', 'route' => 'shop.index'],
             ['name' => 'Portfolio', 'route' => 'portfolio'],
+            ['name' => 'Shop Example', 'route' => 'shop.index'],
+            ['name' => 'Contact', 'route' => 'contact.show'],
+            
+            
         ];
 
         $user = auth()->user();

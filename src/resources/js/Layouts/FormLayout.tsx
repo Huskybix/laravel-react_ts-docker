@@ -11,18 +11,17 @@ export default function Main({
     useCartValidator();
     
     return (
-        <div id="mainWrapper" className="min-h-screen bg-gray-100 flex flex-col pt-36 w-full items-center px-4 md:px-8 lg:px-12 pb-16">
+        <div id="mainWrapper" className="min-h-screen bg-gray-100 flex flex-col pt-32 w-full items-center px-4 md:px-8 lg:px-12 pb-8">
                 
             <NavBar active={false}></NavBar>
 
-            <div id="mainInner" className="flex flex-col gap-4 bg-navBackground rounded-xl p-4 md:p-8 shadow w-full lg:max-w-2/3 xl:max-w-3/4 w-full text-white">
+            <div id="mainInner" className="flex flex-col gap-4 bg-navBackground rounded-xl p-4 md:p-8 shadow w-full lg:w-max lg:min-w-[30rem] text-white w-full">
                 
                 {header && (
                     <header>{header}</header>
                 )}
-                <main className="w-full">
-                    {children}
-                </main>
+                
+                {children}
             </div>
 
         </div>

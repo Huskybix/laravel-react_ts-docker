@@ -51,11 +51,11 @@ export default function UpdatePasswordForm({
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900">
+                <h2 className="text-lg font-medium text-primaryOrange">
                     Update Password
                 </h2>
 
-                <p className="mt-1 text-sm text-gray-600">
+                <p className="mt-1 text-sm text-gray-200">
                     Ensure your account is using a long, random password to stay
                     secure.
                 </p>
@@ -63,10 +63,7 @@ export default function UpdatePasswordForm({
 
             <form onSubmit={updatePassword} className="mt-6 space-y-6">
                 <div>
-                    <InputLabel
-                        htmlFor="current_password"
-                        value="Current Password"
-                    />
+                    <InputLabel htmlFor="current_password" value="Current Password" className="text-primaryOrange" />
 
                     <TextInput
                         id="current_password"
@@ -87,7 +84,7 @@ export default function UpdatePasswordForm({
                 </div>
 
                 <div>
-                    <InputLabel htmlFor="password" value="New Password" />
+                    <InputLabel htmlFor="password" value="New Password" className="text-primaryOrange" />
 
                     <TextInput
                         id="password"
@@ -103,11 +100,8 @@ export default function UpdatePasswordForm({
                 </div>
 
                 <div>
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
-                    />
-
+                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" className="text-primaryOrange" />
+                    
                     <TextInput
                         id="password_confirmation"
                         value={data.password_confirmation}

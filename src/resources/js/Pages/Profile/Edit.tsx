@@ -12,31 +12,27 @@ export default function Edit({
     return (
         <MainLayout
             header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
+                <h1 className="text-xl font-semibold leading-tight">
                     Profile
-                </h2>
+                </h1>
             }
         >
             <Head title="Profile" />
 
-            <div className="pb-12">
-                <div className="mx-auto max-w-7xl space-y-6 sm:px-6 lg:px-8">
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <UpdateProfileInformationForm
-                            mustVerifyEmail={mustVerifyEmail}
-                            status={status}
-                            className="max-w-xl"
-                        />
-                    </div>
+            <div className="flex flex-col gap-8">
+                    <UpdateProfileInformationForm
+                        mustVerifyEmail={mustVerifyEmail}
+                        status={status}
+                        className="max-w-xl"
+                    />
 
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <UpdatePasswordForm className="max-w-xl" />
-                    </div>
+                    <hr className="border-gray-300" />
 
-                    <div className="bg-white p-4 shadow sm:rounded-lg sm:p-8">
-                        <DeleteUserForm className="max-w-xl" />
-                    </div>
-                </div>
+                    <UpdatePasswordForm className="max-w-xl" />
+
+                    <hr className="border-gray-300" />
+                    
+                    <DeleteUserForm className="max-w-xl" />
             </div>
         </MainLayout>
     );

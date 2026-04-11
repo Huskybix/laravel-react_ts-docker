@@ -2,7 +2,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import MainLayout from '@/Layouts/MainLayout';
+import FormLayout from '@/Layouts/FormLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
 
@@ -23,10 +23,14 @@ export default function Register() {
     };
 
     return (
-        <MainLayout>
+        <FormLayout header={
+                <h1 className="text-xl font-semibold leading-tight">
+                    Register
+                </h1>
+            }>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className="w-full flex flex-col gap-4">
                 <div>
                     <InputLabel htmlFor="name" value="Name" className="text-primaryOrange" />
 
@@ -44,7 +48,7 @@ export default function Register() {
                     <InputError message={errors.name} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
+                <div>
                     <InputLabel htmlFor="email" value="Email" className="text-primaryOrange" />
 
                     <TextInput
@@ -61,7 +65,7 @@ export default function Register() {
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
+                <div>
                     <InputLabel htmlFor="password" value="Password" className="text-primaryOrange" />
 
                     <TextInput
@@ -78,7 +82,7 @@ export default function Register() {
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
+                <div>
                     <InputLabel htmlFor="password_confirmation" value="Confirm Password" className="text-primaryOrange" />
 
                     <TextInput
@@ -97,11 +101,8 @@ export default function Register() {
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    >
+                <div className="flex items-center justify-end">
+                    <Link href={route('login')} className="text-sm text-primaryOrange underline hover:text-primaryOrangeBrighter focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                         Already registered?
                     </Link>
 
@@ -110,6 +111,6 @@ export default function Register() {
                     </PrimaryButton>
                 </div>
             </form>
-        </MainLayout>
+        </FormLayout>
     );
 }

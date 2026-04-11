@@ -31,7 +31,7 @@ export default function ShopIndex({ auth, products }: Props) {
             }>
             <Head title="Shop" />
 
-            <div id="cartContainer" className="hidden fixed p-4 top-[5.75rem] right-0 w-84 bg-navBackground h-screen">
+            <div id="cartContainer" className="hidden fixed p-4 top-[5rem] right-0 w-84 bg-navBackground h-screen">
                 <h2 className="text-2xl font-bold text-primaryOrange mb-6">Your Cart</h2>
                 <div className="sticky top-6">
                     <Cart />

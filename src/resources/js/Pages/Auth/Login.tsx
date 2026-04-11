@@ -97,7 +97,7 @@ export default function Login({
 
                 <div className="mt-4 flex items-center justify-end">
                     {canResetPassword && (
-                        <Link href={route('password.request')} className="rounded-md text-sm text-primaryOrange underline hover:text-primaryOrangeBrighter focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        <Link href={route('password.request')} className="text-sm text-primaryOrange underline hover:text-primaryOrangeBrighter focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                             Forgot your password?
                         </Link>
                     )}

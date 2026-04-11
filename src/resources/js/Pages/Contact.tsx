@@ -2,9 +2,11 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import MainLayout from '@/Layouts/MainLayout';
+import FormLayout from '@/Layouts/FormLayout';
 import { Head, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
+import linkedInLogo from '@/Assets/Images/linkedin.png';
+import gitLogo from '@/Assets/Images/github.png';
 
 type FormFields = {
     name: string;
@@ -29,19 +31,27 @@ export default function Contact()
     };
 
     return (
-        <MainLayout
-            header={
+        <FormLayout header={
                 <h1 className="text-xl font-semibold leading-tight">
                     Contact Me
                 </h1>
-            }
-        >
+            }>
             <Head title="Contact" />
             
-            <div className="flex flex-col gap-8">
-                <div className="">
-                    This form is hooked up to Formspree, a third party email service. Therefore if you've booted up this container after pulling this repo yourself and were curious if this page would even work, it does! Messages sent through it will reach me at my personal email address, all without me having to store my contact details in a public Git repository. Talk about ideal.
-                </div>
+            <div className="flex flex-col gap-8 w-full w-full lg:max-w-[30rem]">
+                <span className="flex flex-col gap-2">
+                    <p>This form is hooked up to Formspree, a third party email service. Therefore if you've booted up this container after pulling this repo yourself and were curious if this page would even work, it does!</p>
+                    <p>Messages sent through it will reach me at my personal email address, all without me having to store my contact details in a public Git repository. Talk about ideal.</p>
+                </span>
+
+                <span className="flex flex-row gap-2">
+                    <a href="https://www.linkedin.com/in/niall-storie-a74ab53b7/" target="_blank">
+                        <img src={linkedInLogo} alt="LinkedIn Link" className="max-w-8" />
+                    </a>
+                    <a href="https://github.com/huskybix" target="_blank">
+                        <img src={gitLogo} alt="Github Link" className="max-w-8" />
+                    </a>
+                </span>
 
                 <form onSubmit={handleSubmit} className="space-y-6 w-full">
                     <div>
@@ -108,6 +118,6 @@ export default function Contact()
                     </PrimaryButton>
                 </form>
             </div>
-        </MainLayout>
+        </FormLayout>
     );
 }

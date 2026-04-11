@@ -6,6 +6,8 @@ import Dropdown from './Dropdown';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
 
+import burger from '@/Assets/Images/menu-burger.png';
+
 export default function NavBar({
     active = false,
     className = '',
@@ -18,22 +20,21 @@ export default function NavBar({
     const user = usePage().props.auth.user;
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-40 bg-navBackground backdrop-blur-sm p-6 h-[5.75rem]">
-            <div className="flex flex-row gap-4 md:flex-row items-center justify-between">
-                <button className="py-1.25 md:hidden text-gray-300 border border-transparent hover:text-white focus-visible:outline-none focus-visible:border-white rounded-sm" onClick={() => setMenuOpen(prev => !prev)} aria-label="Toggle menu">
+        <nav className="fixed top-0 left-0 right-0 z-40 bg-navBackgroundMobile lg:bg-navBackground backdrop-blur-sm p-6 h-auto flex items-center justify-between">
+            <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between w-full">
+                <button className="lg:hidden text-gray-300 border border-transparent hover:text-white focus-visible:outline-none focus-visible:border-white rounded-sm h-8 w-8 cursor-pointer" onClick={() => setMenuOpen(prev => !prev)} aria-label="Toggle menu">
                     {menuOpen ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 32 32" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 24L24 8M8 8l16 16" />
                         </svg>
                     ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
+                        <img src={burger} alt="Menu" className="h-8 w-8" />
                     )}
                 </button>
 
-                <div className={`md:flex flex-col md:flex-row gap-4 w-full ${menuOpen ? 'flex' : 'hidden'} `}>
+                <div className={`lg:flex flex-col lg:flex-row gap-4 w-full ${menuOpen ? 'flex' : 'hidden'} `}>
                     {navigation.links.map((link: NavLinkType) => (
+                        <>
                         <NavLink
                             key={link.route}
                             href={route(link.route)}
@@ -42,17 +43,52 @@ export default function NavBar({
                         >
                             {link.name}
                         </NavLink>
+                        <hr className="border-gray-200 lg:hidden" />
+                        </>
                     ))}
+
+                    {user != null && (
+                        <>
+                        <NavLink key="Profile" href={route('profile.edit')} active={route().current('profile.edit')} onClick={() => setMenuOpen(false)} className="block lg:hidden">
+                            Edit Profile
+                        </NavLink>
+
+                        <hr className="border-gray-200 lg:hidden" />
+                        
+                        <NavLink key="Logout" href={route('logout')} active={route().current('logout')} onClick={() => setMenuOpen(false)} className="block lg:hidden">
+                            Logout
+                        </NavLink>
+                        </>
+                    )}
                 </div>
-                
-                {user != null ? (
-                    <div className="hidden sm:ms-6 sm:flex sm:items-center">
+            </div>
+
+            {user != null ? (
+                <>
+                    {route().current('shop.index') && (
+                        <SecondaryButton
+                            id="cartToggle"
+                            className="bg-gray-100 text-black p-2 rounded-md min-w-max cursor-pointer hover:bg-gray-200 h-8"
+                            onClick={() => {
+                                if (window.innerWidth >= 1024) {
+                                    document.getElementById('cartContainer')?.classList.toggle('lg:!block');
+                                    document.getElementById('mainWrapper')?.classList.toggle('items-center');
+                                } else {
+                                    window.location.href = '/shop/cart';
+                                }
+                            }}
+                        >
+                            View Cart
+                        </SecondaryButton>
+                    )}
+
+                    <div className="hidden sm:ms-6 lg:flex sm:items-center">
                         <div className="relative ms-3">
                             <Dropdown>
                                 <Dropdown.Trigger>
                                     <span className="inline-flex rounded-md">
-                                        <button type="button" className="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none w-max">
-                                            {user.name}
+                                        <button type="button" className="h-8 cursor-pointer inline-flex items-center rounded-md border border-transparent bg-primaryOrange px-4 py-2 text-xs font-semibold uppercase tracking-widest text-gray-800 transition duration-150 ease-in-out hover:text-white hover:bg-primaryOrangeDarker focus:bg-primaryOrangeDarker focus:outline-none focus:ring-2 focus:ring-primaryOrange focus:ring-offset-2 active:bg-gray-900 w-max">
+                                            Account
                                             <svg className="-me-0.5 ms-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                 <path
                                                     fillRule="evenodd"
@@ -72,6 +108,7 @@ export default function NavBar({
                             </Dropdown>
                         </div>
                     </div>
+                </>
                 ) : (
                     <>
                     {route().current('shop.index') && (
@@ -95,7 +132,6 @@ export default function NavBar({
                     </PrimaryButton>
                     </>
                 )}
-            </div>
         </nav>
     );
 }
