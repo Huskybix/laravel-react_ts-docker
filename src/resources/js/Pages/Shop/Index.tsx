@@ -58,7 +58,7 @@ export default function ShopIndex({ auth, products }: Props) {
                                 <div className="mt-auto">
                                     <div className="flex flex-row justify-between px-4 items-center">
                                         <span className="text-indigo-600 font-bold mt-1 text-xl">${product.price.toFixed(2)}</span>
-                                        <span className="text-gray-500 text-sm">{product.stock - qty} in stock</span>
+                                        <span className="text-gray-500 text-sm">{product.stock} in stock</span>
                                     </div>
 
                                     <button onClick={() => addItem(product)} className="mt-3 w-full bg-primaryOrange hover:bg-primaryOrangeDarker cursor-pointer text-gray-800 text-sm font-medium py-2 px-4 transition-colors ">

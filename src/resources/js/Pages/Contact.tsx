@@ -40,7 +40,7 @@ export default function Contact()
             
             <div className="flex flex-col gap-8">
                 <div className="">
-                    This form is hooked up to Formspree, a third party email service. Therefore if you've booted up this container and were curious if this page would even work, it does! Messages sent through it will reach me at my personal email address, all without me having to store my contact details in a public Git repository. Talk about ideal.
+                    This form is hooked up to Formspree, a third party email service. Therefore if you've booted up this container after pulling this repo yourself and were curious if this page would even work, it does! Messages sent through it will reach me at my personal email address, all without me having to store my contact details in a public Git repository. Talk about ideal.
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6 w-full">
