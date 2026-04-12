@@ -38,7 +38,7 @@ export default function Portfolio()
                             </div>
                         </div>
 
-                        <img src={siteLogo} alt="Hero Image" className="max-w-[10rem] order-1 xl:order-2 mx-auto xl:mx-0 !mb-4 xl:mb-0" />
+                        <img src={siteLogo} alt="Hero Image" className="max-w-[10rem] order-1 xl:order-2 mx-auto xl:mx-0 !mb-4 xl:!mb-0" />
                     </div>
                     <h3 className="font-semibold mt-4">About</h3>
                     <span className="flex flex-col gap-1">
@@ -49,6 +49,7 @@ export default function Portfolio()
                     </span>
 
                     <h3 className="font-semibold mt-4">The Shop</h3>
+                    <a href="/shop" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">Shop</a>
                     <span className="flex flex-col gap-1">
                         <p>The shop uses a state management library for React called Zustand in order to implement a persistent cart.</p>
                         <p>Running in tandem with this is a piece of middleware in the form of a Zustand hook, which validates the cart whenever a user changes page or attempts to check out. This ensures the app is aware of stock levels at all times and can actively remove items from a cart should they no longer be available.</p>
@@ -145,18 +146,28 @@ export default function Portfolio()
                     <h3 className="font-semibold mt-4">About</h3>
                     <span className="flex flex-col gap-1">
                         <p>These pages were written in tandem, with one being an interactive Vue.js quiz applet that calls back to the other which contains information on a variety of IT career paths.</p> 
-                        <p>All development on this was done by myself, including the large graphical information segments.</p>
-                        <p>It's fully responsive and features several clever design adjustments to look great on any size device.</p>
-                        <p>The quiz applet keeps a cumulative score relating to answers given, with points allocated to each role based on the user's responses. The final scores then get passed off to an API on the back end which reroutes the user to the main careers page with their result highlighted and expanded, with runner-up roles listed.</p>
+                        <p>All development on this project was done by myself, including a few graphic edits which ended up being necessary. I did these using GIMP, an open source image editor.</p>
+                        <p>Both pages are fully responsive and feature several clever design adjustments to look great on any size device.</p>
                     </span>
 
-                    <h3 className="font-semibold mt-4">Key Pages</h3>
+                    <h3 className="font-semibold mt-4">Main Page</h3>
                     <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Main Page
                     </a>
+                    <span className="flex flex-col gap-1">
+                        <p>The main page is an Umbraco razor view which utilizes Tailwind for its layout and styling.</p>
+                        <p>The design for all elements was provided directly by the client via Figma.</p>
+                        <p>The primary challenges with this page were with the design of the banners and large role infographics. The client was quite particular in how they wanted the design to behave and getting it to do so while maintaining responsiveness and reasonable load times with so many large images and unique design elements took a few clever solutions.</p>
+                    </span>
+
+                    <h3 className="font-semibold mt-4">Quiz Applet</h3>
                     <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Quiz Applet
                     </a>
+                    <span className="flex flex-col gap-1">
+                        <p>The quiz applet was written in Vue.js as a standalone application in order to provide an efficient and seamless user experience across a variety of devices.</p>
+                        <p>In the background the app keeps a cumulative score relating to answers given, with points allocated to each role based on the user's responses. The final scores then get passed off to an API on the back end which reroutes the user to the main careers page with their top result expanded, and runner-up roles highlighted.</p>
+                    </span>
                 </div>
                 <hr className="border-gray-300" />
                 <div className="flex flex-col gap-2">
@@ -179,16 +190,15 @@ export default function Portfolio()
                         <img src={fbLogo} alt="Hero Image" className="h-[67px] order-1 xl:order-2 mx-auto xl:mx-0 !mb-4 xl:mb-0" />
                     </div>
                     <h3 className="font-semibold mt-4">About</h3>
-                    <span className="flex flex-col gap-1">
-                        <p>Firebrand training is another Umbraco website I worked on which was geared more toward sales and course booking.</p>
-                        <p>The site has since changed hands, but the core architecture our team built remains largely intact.</p>
-                        <p>The main difficulty factor in developing for Firebrand was the vast number of regions they served, and a need for both region specific data and translations while maintaining consistency and usability. Due to them having such a large volume of stored data, a robust and well planned API was essential, and we had to ensure that we only ever accessed what we needed in order to maintain performance and a solid user experience.</p>
-                        <p>As with Stable Micro Systems, Umbraco utilizes Angular for its back-end CMS templating and I worked on those here as well.</p>
-                    </span>
-                    <h3 className="font-semibold mt-4">Key Pages</h3>
                     <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Main Website
                     </a>
+                    <span className="flex flex-col gap-1">
+                        <p>Firebrand training are a multinational entity supplying training and certification programs across multiple countries. Their website is built on Umbraco and as part of their ongoing development our team reworked their entire website from the ground up, utilizing a well-optimized API we created from scratch for them.</p>
+                        <p>The site has since changed hands, but the core architecture our team built remains largely intact.</p>
+                        <p>The main difficulty factor in developing for Firebrand was the vast number of regions they served, and a need for both region specific data and translations while maintaining consistency and usability. Due to them having such a large volume of stored data, a robust and well planned API was essential, and we had to ensure that we only ever accessed what we needed in order to maintain speed, performance and a solid user experience.</p>
+                        <p>As with Stable Micro Systems, Umbraco utilizes Angular for its back-end CMS templating and I worked on those here as well.</p>
+                    </span>
                 </div>
             </div>
         </MainLayout>

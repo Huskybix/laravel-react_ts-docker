@@ -8,7 +8,7 @@ class NavigationController extends Controller
     public static function getLinks(): array
     {
         $links = [
-            ['name' => 'Dashboard', 'route' => 'dashboard'],
+            ['name' => 'Welcome', 'route' => 'dashboard'],
             ['name' => 'About', 'route' => 'about'],
             ['name' => 'Portfolio', 'route' => 'portfolio'],
             ['name' => 'Shop Example', 'route' => 'shop.index'],
