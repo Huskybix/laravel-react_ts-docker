@@ -1,5 +1,9 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Head } from '@inertiajs/react';
+import siteLogo from '@/Assets/Images/husky-logo-white.webp';
+import smsLogo from '@/Assets/Images/sms-logo.webp';
+import bcsLogo from '@/Assets/Images/bcs-logo.webp';
+import fbLogo from '@/Assets/Images/fb-logo.webp';
 
 export default function Portfolio() 
 {
@@ -15,19 +19,26 @@ export default function Portfolio()
             
             <div className="flex flex-col gap-8">
                 <div className="flex flex-col gap-2">
-                    <h2 className="font-bold text-primaryOrange">This Website</h2>
-                    <h3 className="font-semibold mt-4">Tech Stack</h3>
-                    <div className="flex flex-row flex-wrap gap-2">
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Laravel</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">React</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Typescript</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Inertia.js</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Vite</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Zustand</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">MySQL</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Docker</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                    <div className="flex flex-col xl:flex-row justify-between w-full items-start">
+                        <div className="flex flex-col gap-4 order-2 xl:order-1">
+                            <h2 className="font-bold text-primaryOrange">This Website</h2>
+                            <h3 className="font-semibold mt-4">Tech Stack</h3>
+                        
+                            <div className="flex flex-row flex-wrap gap-2 items-start">
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Laravel</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">React</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Typescript</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Inertia.js</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Vite</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Zustand</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">MySQL</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Docker</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                            </div>
+                        </div>
+
+                        <img src={siteLogo} alt="Hero Image" className="max-w-[10rem] order-1 xl:order-2 mx-auto xl:mx-0 !mb-4 xl:mb-0" />
                     </div>
                     <h3 className="font-semibold mt-4">About</h3>
                     <span className="flex flex-col gap-1">
@@ -46,19 +57,24 @@ export default function Portfolio()
                 </div>
                 <hr className="border-gray-300" />
                 <div className="flex flex-col gap-2">
-                    <h2 className="font-bold text-primaryOrange">Stable Micro Systems</h2>
+                    <div className="flex flex-col xl:flex-row justify-between w-full xl:items-center">
+                        <div className="flex flex-col gap-4 order-2 xl:order-1 flex-grow">
+                            <h2 className="font-bold text-primaryOrange">Stable Micro Systems</h2>
 
-                    <h3 className="font-semibold mt-4">Tech Stack</h3>
-                    <div className="flex flex-row flex-wrap gap-2">
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Javascript</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
+                            <h3 className="font-semibold mt-4">Tech Stack</h3>
+                            <div className="flex flex-row flex-wrap gap-2">
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Javascript</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
+                            </div>
+                        </div>
+                        
+                        <img src={smsLogo} alt="Hero Image" className="max-h-[2rem] order-1 xl:order-2 mx-auto xl:mx-0 w-max !mb-4 xl:mb-0" />
                     </div>
-
                     <h3 className="font-semibold mt-4">Site Overview</h3>
                     <span className="flex flex-col gap-1">
                         <a href="https://www.stablemicrosystems.com" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
@@ -109,22 +125,22 @@ export default function Portfolio()
                 </div>
                 <hr className="border-gray-300" />
                 <div className="flex flex-col gap-2">
-                    <h2 className="font-bold text-primaryOrange">BCS Careers Quiz Microsite</h2>
-                    <h3 className="font-semibold mt-4">Key Pages</h3>
-                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
-                        Main Page
-                    </a>
-                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
-                        Quiz Applet
-                    </a>
-                    <h3 className="font-semibold mt-4">Tech Stack</h3>
-                    <div className="flex flex-row flex-wrap gap-2">
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Vue.js</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                    <div className="flex flex-col xl:flex-row justify-between w-full items-start">
+                        <div className="flex flex-col gap-4 order-2 xl:order-1">
+                            <h2 className="font-bold text-primaryOrange">BCS Careers Quiz Microsite</h2>
+                            <h3 className="font-semibold mt-4">Tech Stack</h3>
+                        
+                            <div className="flex flex-row flex-wrap gap-2 items-start">
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Vue.js</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                            </div>
+                        </div>
+
+                        <img src={bcsLogo} alt="Hero Image" className="max-w-[7rem] order-1 xl:order-2 mx-auto xl:mx-0 !mb-4 xl:mb-0" />
                     </div>
                     <h3 className="font-semibold mt-4">About</h3>
                     <span className="flex flex-col gap-1">
@@ -133,24 +149,34 @@ export default function Portfolio()
                         <p>It's fully responsive and features several clever design adjustments to look great on any size device.</p>
                         <p>The quiz applet keeps a cumulative score relating to answers given, with points allocated to each role based on the user's responses. The final scores then get passed off to an API on the back end which reroutes the user to the main careers page with their result highlighted and expanded, with runner-up roles listed.</p>
                     </span>
+
+                    <h3 className="font-semibold mt-4">Key Pages</h3>
+                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
+                        Main Page
+                    </a>
+                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
+                        Quiz Applet
+                    </a>
                 </div>
                 <hr className="border-gray-300" />
                 <div className="flex flex-col gap-2">
-                    <h2 className="font-bold text-primaryOrange">Firebrand Training</h2>
-                    <h3 className="font-semibold mt-4">Key Pages</h3>
-                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
-                        Main Website
-                    </a>
-                    <h3 className="font-semibold mt-4">Tech Stack</h3>
-                    <div className="flex flex-row flex-wrap gap-2">
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Javascript</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Webpack</span>
-                        <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
+                    <div className="flex flex-col xl:flex-row justify-between w-full items-start">
+                        <div className="flex flex-col gap-4 order-2 xl:order-1">
+                            <h2 className="font-bold text-primaryOrange">Firebrand Training</h2>
+                            <h3 className="font-semibold mt-4">Tech Stack</h3>
+                            <div className="flex flex-row flex-wrap gap-2">
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Javascript</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Webpack</span>
+                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
+                            </div>
+                        </div>
+                        
+                        <img src={fbLogo} alt="Hero Image" className="h-[67px] order-1 xl:order-2 mx-auto xl:mx-0 !mb-4 xl:mb-0" />
                     </div>
                     <h3 className="font-semibold mt-4">About</h3>
                     <span className="flex flex-col gap-1">
@@ -159,6 +185,10 @@ export default function Portfolio()
                         <p>The main difficulty factor in developing for Firebrand was the vast number of regions they served, and a need for both region specific data and translations while maintaining consistency and usability. Due to them having such a large volume of stored data, a robust and well planned API was essential, and we had to ensure that we only ever accessed what we needed in order to maintain performance and a solid user experience.</p>
                         <p>As with Stable Micro Systems, Umbraco utilizes Angular for its back-end CMS templating and I worked on those here as well.</p>
                     </span>
+                    <h3 className="font-semibold mt-4">Key Pages</h3>
+                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
+                        Main Website
+                    </a>
                 </div>
                 <hr className="border-gray-300" />
             </div>
