@@ -23,13 +23,6 @@ class NavigationController extends Controller
             return $links;
         }
 
-        if ($user->role->value >= UserRole::Moderator->value) 
-        {
-            $links = array_merge($links, [
-                ['name' => 'Reports', 'route' => 'reports'],
-            ]);
-        }
-
         if ($user->role->value >= UserRole::Admin->value) 
         {
             $links = array_merge($links, [

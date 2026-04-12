@@ -49,7 +49,7 @@ export default function NavBar({
                         </>
                     ))}
 
-                    {user != null && (
+                    {user != null ? (
                         <>
                         <NavLink key="Profile" href={route('profile.edit')} active={route().current('profile.edit')} onClick={() => setMenuOpen(false)} className="block lg:hidden">
                             Edit Profile
@@ -61,6 +61,10 @@ export default function NavBar({
                             Logout
                         </NavLink>
                         </>
+                    ) : (
+                        <NavLink key="Register" href={route('register')} active={route().current('register')} onClick={() => setMenuOpen(false)} className="block lg:hidden">
+                            Register
+                        </NavLink>
                     )}
                 </div>
             </div>
@@ -70,7 +74,7 @@ export default function NavBar({
                     {route().current('shop.index') && (
                         <SecondaryButton
                             id="cartToggle"
-                            className="bg-gray-100 text-black p-2 rounded-md min-w-max cursor-pointer hover:bg-gray-200 h-8"
+                            className={`${menuOpen ? '!hidden' : '!flex'} bg-gray-100 text-black p-2 rounded-md min-w-max cursor-pointer hover:bg-gray-200`}
                             onClick={() => {
                                 if (window.innerWidth >= 1024) 
                                 {
@@ -116,7 +120,7 @@ export default function NavBar({
                     {route().current('shop.index') && (
                         <SecondaryButton
                             id="cartToggle"
-                            className="bg-gray-100 text-black p-2 rounded-md min-w-max cursor-pointer hover:bg-gray-200"
+                            className={`${menuOpen ? '!hidden' : '!flex'} bg-gray-100 text-black p-2 rounded-md min-w-max cursor-pointer hover:bg-gray-200`}
                             onClick={() => {
                                 if (window.innerWidth >= 1024) {
                                     toggleCart()
@@ -128,7 +132,7 @@ export default function NavBar({
                             View Cart
                         </SecondaryButton>
                     )}
-                    <PrimaryButton className="ms-4 min-w-max" onClick={() => window.location.href = '/register'}>
+                    <PrimaryButton className="!hidden lg:!flex ms-4 min-w-max" onClick={() => window.location.href = '/register'}>
                         Register Account
                     </PrimaryButton>
                     </>

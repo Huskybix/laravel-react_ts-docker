@@ -39,12 +39,8 @@ Route::get('/login', function () {
     ]);
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
-
-    Route::middleware('role:' . UserRole::Moderator->value)->group(function () {
-        Route::get('/reports', [ReportsController::class, 'index'])->name('reports');
-    });
-
+Route::middleware(['auth', 'verified'])->group(function () 
+{
     Route::middleware('role:' . UserRole::Admin->value)->group(function () {
         Route::get('/admin/users', fn() => Inertia::render('Users'))->name('users');
     });

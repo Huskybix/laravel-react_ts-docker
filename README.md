@@ -77,22 +77,6 @@ App\Models\Product::create([
 ]);
 ```
 
-# Manually Adding Reports
-- Run Tinker `docker-compose exec app php artisan tinker`
-
-- Create reports with the following format:
-```php
-App\Models\Report::create([
-    'name' => 'Horizon Pro',
-    'category' => 'Analytics',
-    'revenue' => 84200,
-    'trend_bars' => json_encode([2, 1, 4, 2, 3, 4, 5]),
-    'status' => 'Active'
-]);
-```
-
-Trend bars are a chart where each value is displayed as a bar.
-
 # Error Fixes
 
 - tempnam(): file created in the system's temporary directory
