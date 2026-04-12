@@ -18,6 +18,18 @@ Route::get('/', function () {
     ]);
 })->name('dashboard');
 
+Route::get('/about', fn() => Inertia::render('About'))->name('about');
+Route::get('/portfolio', fn() => Inertia::render('Portfolio'))->name('portfolio');
+
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/shop/cart', fn() => Inertia::render('Shop/Cart'))->name('shop.cart');
+Route::get('/shop/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/shop/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::get('/shop/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
 Route::get('/login', function () {
     return Inertia::render('Auth/Login', [
         'canLogin' => Route::has('login'),
@@ -26,14 +38,6 @@ Route::get('/login', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-
-Route::get('/about', fn() => Inertia::render('About'))->name('about');
-Route::get('/portfolio', fn() => Inertia::render('Portfolio'))->name('portfolio');
-Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
-Route::get('/shop/cart', fn() => Inertia::render('Shop/Cart'))->name('shop.cart');
-
-Route::get('/shop/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-Route::post('/shop/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
@@ -49,8 +53,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 require __DIR__.'/auth.php';

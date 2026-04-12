@@ -9,7 +9,8 @@ export interface CartItem {
     image?: string
 }
 
-interface CartStore {
+interface CartStore 
+{
     items: CartItem[]
     addItem: (product: Omit<CartItem, 'quantity'>) => void
     removeItem: (id: number) => void
@@ -17,6 +18,9 @@ interface CartStore {
     clearCart: () => void
     totalItems: () => number
     totalPrice: () => number
+    isCartOpen: boolean
+    setCartOpen: (open: boolean) => void
+    toggleCart: () => void
 }
 
 export const useCartStore = create<CartStore>()
@@ -58,7 +62,16 @@ export const useCartStore = create<CartStore>()
             totalItems: () => get().items.reduce((sum, i) => sum + i.quantity, 0),
 
             totalPrice: () => get().items.reduce((sum, i) => sum + i.price * i.quantity, 0),
+
+            isCartOpen: false,
+
+            setCartOpen: (open) => set({ isCartOpen: open }),
+
+            toggleCart: () => set({ isCartOpen: !get().isCartOpen }),
         }),
-        { name: 'cart-storage' }
+        { 
+            name: 'cart-storage',
+            partialize: (state) => ({ items: state.items }), 
+        }
     )
 )

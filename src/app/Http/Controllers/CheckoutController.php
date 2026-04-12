@@ -15,6 +15,11 @@ class CheckoutController extends Controller
         return Inertia::render('Shop/Checkout');
     }
 
+    public function success()
+    {
+        return Inertia::render('Shop/CheckoutSuccess');
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -26,27 +31,26 @@ class CheckoutController extends Controller
             'items'    => ['required', 'array', 'min:1'],
             'items.*.id'       => ['required', 'integer', 'exists:products,id'],
             'items.*.quantity' => ['required', 'integer', 'min:1'],
-            'items.*.price'    => ['required', 'numeric', 'min:0'],
         ]);
 
-        DB::transaction(function () use ($validated, $request) {
+        DB::transaction(function () use ($validated) {
             $productIds = collect($validated['items'])->pluck('id');
             $products = Product::whereIn('id', $productIds)
                 ->lockForUpdate()
                 ->get()
                 ->keyBy('id');
 
-            foreach ($validated['items'] as $item) {
+            foreach ($validated['items'] as $item) 
+            {
                 $product = $products->get($item['id']);
+
                 if ($product->stock < $item['quantity']) {
                     throw \Illuminate\Validation\ValidationException::withMessages([
                         'items' => "'{$product->name}' does not have enough stock.",
                     ]);
                 }
-            }
 
-            foreach ($validated['items'] as $item) {
-                $products->get($item['id'])->decrement('stock', $item['quantity']);
+                $product->decrement('stock', $item['quantity']);
             }
         });
 

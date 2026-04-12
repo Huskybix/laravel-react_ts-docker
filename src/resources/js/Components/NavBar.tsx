@@ -7,6 +7,7 @@ import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
 
 import burger from '@/Assets/Images/menu-burger.png';
+import { useCartStore } from '@/Stores/useCartStore';
 
 export default function NavBar({
     active = false,
@@ -17,6 +18,7 @@ export default function NavBar({
 
     const { navigation } = usePage<PageProps>().props;
     const [menuOpen, setMenuOpen] = useState(false);
+    const { toggleCart } = useCartStore()
     const user = usePage().props.auth.user;
 
     return (
@@ -70,9 +72,9 @@ export default function NavBar({
                             id="cartToggle"
                             className="bg-gray-100 text-black p-2 rounded-md min-w-max cursor-pointer hover:bg-gray-200 h-8"
                             onClick={() => {
-                                if (window.innerWidth >= 1024) {
-                                    document.getElementById('cartContainer')?.classList.toggle('lg:!block');
-                                    document.getElementById('mainWrapper')?.classList.toggle('items-center');
+                                if (window.innerWidth >= 1024) 
+                                {
+                                    toggleCart()
                                 } else {
                                     window.location.href = '/shop/cart';
                                 }
@@ -117,8 +119,7 @@ export default function NavBar({
                             className="bg-gray-100 text-black p-2 rounded-md min-w-max cursor-pointer hover:bg-gray-200"
                             onClick={() => {
                                 if (window.innerWidth >= 1024) {
-                                    document.getElementById('cartContainer')?.classList.toggle('lg:!block');
-                                    document.getElementById('mainWrapper')?.classList.toggle('items-center');
+                                    toggleCart()
                                 } else {
                                     window.location.href = '/shop/cart';
                                 }

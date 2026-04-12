@@ -3,15 +3,17 @@ import { Link, usePage } from '@inertiajs/react';
 import NavBar from '@/Components/NavBar';
 import Dropdown from '@/Components/Dropdown';
 import { useCartValidator } from '@/Hooks/useCartValidator';
+import { useCartStore } from '@/Stores/useCartStore';
 export default function Main({
     header,
     children,
 }: PropsWithChildren<{ header?: ReactNode }>) {
     const user = usePage().props.auth.user;
+    const { isCartOpen } = useCartStore();
     useCartValidator();
     
     return (
-        <div id="mainWrapper" className="min-h-screen bg-gray-100 flex flex-col pt-32 w-full items-center px-4 md:px-8 lg:px-12 pb-16">
+        <div id="mainWrapper" className={`min-h-screen bg-gray-100 flex flex-col pt-32 w-full ${isCartOpen ? '' : 'items-center'} px-4 md:px-8 lg:px-12 pb-16`}>
                 
             <NavBar active={false}></NavBar>
 

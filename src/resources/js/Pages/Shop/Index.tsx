@@ -18,7 +18,7 @@ interface Props extends PageProps {
 }
 
 export default function ShopIndex({ auth, products }: Props) {
-    const { addItem, items } = useCartStore()
+    const { addItem, items, isCartOpen, setCartOpen, toggleCart } = useCartStore()
 
     const getQuantityInCart = (id: number) =>
         items.find(i => i.id === id)?.quantity ?? 0
@@ -31,7 +31,7 @@ export default function ShopIndex({ auth, products }: Props) {
             }>
             <Head title="Shop" />
 
-            <div id="cartContainer" className="hidden fixed p-4 top-[5rem] right-0 w-84 bg-navBackground h-screen">
+            <div id="cartContainer" className={`${isCartOpen ? 'block' : 'hidden'} fixed p-4 top-[5rem] right-0 w-84 bg-navBackground h-screen`}>
                 <h2 className="text-2xl font-bold text-primaryOrange mb-6">Your Cart</h2>
                 <div className="sticky top-6">
                     <Cart />
@@ -61,7 +61,7 @@ export default function ShopIndex({ auth, products }: Props) {
                                         <span className="text-gray-500 text-sm">{product.stock} in stock</span>
                                     </div>
 
-                                    <button onClick={() => addItem(product)} className="mt-3 w-full bg-primaryOrange hover:bg-primaryOrangeDarker cursor-pointer text-gray-800 text-sm font-medium py-2 px-4 transition-colors ">
+                                    <button onClick={() => { addItem(product); setCartOpen(true); }} className="mt-3 w-full bg-primaryOrange hover:bg-primaryOrangeDarker cursor-pointer text-gray-800 text-sm font-medium py-2 px-4 transition-colors ">
                                         {qty > 0 ? `Add another (${qty} in cart)` : 'Add to Cart'}
                                     </button>
                                 </div>

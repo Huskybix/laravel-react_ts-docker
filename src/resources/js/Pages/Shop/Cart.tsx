@@ -20,15 +20,6 @@ interface Props extends PageProps {
 export default function Cart() {
     const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice } = useCartStore()
 
-    if (items.length === 0) {
-        return (
-            <div className="p-4 border rounded-lg text-center text-gray-500">
-                <p className="text-2xl mb-1">🛒</p>
-                <p className="text-sm">Your cart is empty</p>
-            </div>
-        )
-    }
-
     return (
         <MainLayout header={
                 <h1 className="text-xl font-semibold leading-tight">
@@ -85,11 +76,20 @@ export default function Cart() {
                 <span className="font-bold text-gray-100 text-xl">${totalPrice().toFixed(2)}</span>
             </div>
 
-            <div className="flex justify-end">
-                <PrimaryButton className="w-max p-4 mt-4 !text-base" onClick={() => { window.location.href = '/shop/checkout'; }}>
-                    Proceed to Checkout
-                </PrimaryButton>
-            </div>
+            {items.length === 0 ? (
+                <div className="flex justify-start">
+                    <SecondaryButton className="w-max p-4 mt-4 !text-base" onClick={() => { window.location.href = '/shop'; }}>
+                        Back to Shop
+                    </SecondaryButton>
+                </div>
+            ) : (
+                <div className="flex justify-end">
+                    <PrimaryButton className="w-max p-4 mt-4 !text-base" onClick={() => { window.location.href = '/shop/checkout'; }}>
+                        Proceed to Checkout
+                    </PrimaryButton>
+                </div>
+                )
+            }
         </div>
         </MainLayout>
     )
