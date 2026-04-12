@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -12,11 +10,18 @@ class ProductValidationController extends Controller
     {
         $ids = $request->input('ids', []);
 
-        $validIds = Product::whereIn('id', $ids)
+        $validProducts = Product::whereIn('id', $ids)
             ->where('enabled', true)
             ->where('stock', '>', 0)
-            ->pluck('id');
+            ->get(['id', 'name', 'stock']);
 
-        return response()->json(['validIds' => $validIds]);
+        $validIds = $validProducts->pluck('id');
+        $removedIds = collect($ids)->diff($validIds);
+        $removedNames = Product::whereIn('id', $removedIds)->pluck('name');
+
+        return response()->json([
+            'validProducts' => $validProducts,
+            'removedNames' => $removedNames,
+        ]);
     }
 }

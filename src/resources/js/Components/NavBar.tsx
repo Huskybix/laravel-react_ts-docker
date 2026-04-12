@@ -8,6 +8,7 @@ import SecondaryButton from './SecondaryButton';
 
 import burger from '@/Assets/Images/menu-burger.png';
 import { useCartStore } from '@/Stores/useCartStore';
+import React from 'react';
 
 export default function NavBar({
     active = false,
@@ -36,17 +37,17 @@ export default function NavBar({
 
                 <div className={`lg:flex flex-col lg:flex-row gap-4 w-full ${menuOpen ? 'flex' : 'hidden'} `}>
                     {navigation.links.map((link: NavLinkType) => (
-                        <>
-                        <NavLink
-                            key={link.route}
-                            href={route(link.route)}
-                            active={route().current(link.route)}
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            {link.name}
-                        </NavLink>
-                        <hr className="border-gray-200 lg:hidden" />
-                        </>
+                        <React.Fragment key={link.route}>
+                            <NavLink
+                                key={link.route}
+                                href={route(link.route)}
+                                active={route().current(link.route)}
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                {link.name}
+                            </NavLink>
+                            <hr className="border-gray-200 lg:hidden" />
+                        </React.Fragment>
                     ))}
 
                     {user != null ? (

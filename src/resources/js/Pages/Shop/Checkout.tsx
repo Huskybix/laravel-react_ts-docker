@@ -9,10 +9,12 @@ import TextInput from '@/Components/TextInput'
 import InputLabel from '@/Components/InputLabel'
 import InputError from '@/Components/InputError'
 import { useEffect } from 'react'
+import { useCartValidator } from '@/Hooks/useCartValidator'
 
 export default function Cart() {
     const { items, totalPrice, clearCart } = useCartStore()
     const { auth } = usePage<PageProps>().props
+    const { removedNames, adjustedNames } = useCartValidator()
 
     const { data, setData, post, processing, errors, reset } = useForm({
         email: auth.user?.email ?? '',
@@ -42,6 +44,19 @@ export default function Cart() {
                 </h1>
             }>
             <Head title="Shop" />
+
+        {removedNames.length > 0 && (
+            <div className="bg-red-500 text-white rounded p-3">
+                The following items were removed as they are no longer available: {removedNames.join(', ')}
+            </div>
+        )}
+
+        {adjustedNames.length > 0 && (
+            <div className="bg-yellow-500 text-white rounded p-3">
+                The quantity of the following items was reduced due to limited stock: {adjustedNames.join(', ')}
+            </div>
+        )}
+
         <form className="flex flex-col gap-8" onSubmit={submit}>
             <div className="flex flex-col md:flex-row gap-8 md:gap-32">
                 <div className="flex flex-col gap-4 flex-grow-1 md:max-w-1/2 order-2 md:order-1">

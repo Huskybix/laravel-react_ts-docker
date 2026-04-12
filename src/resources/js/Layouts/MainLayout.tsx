@@ -10,7 +10,6 @@ export default function Main({
 }: PropsWithChildren<{ header?: ReactNode }>) {
     const user = usePage().props.auth.user;
     const { isCartOpen } = useCartStore();
-    useCartValidator();
     
     return (
         <div id="mainWrapper" className={`min-h-screen bg-gray-100 flex flex-col pt-32 w-full ${isCartOpen ? '' : 'items-center'} px-4 md:px-8 lg:px-12 pb-16`}>

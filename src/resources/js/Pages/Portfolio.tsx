@@ -190,7 +190,6 @@ export default function Portfolio()
                         Main Website
                     </a>
                 </div>
-                <hr className="border-gray-300" />
             </div>
         </MainLayout>
     );

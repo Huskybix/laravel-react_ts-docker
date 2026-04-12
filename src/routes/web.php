@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ProductValidationController;
 
 Route::get('/', function () {
     return Inertia::render('Dashboard', [
@@ -26,6 +27,7 @@ Route::get('/shop/cart', fn() => Inertia::render('Shop/Cart'))->name('shop.cart'
 Route::get('/shop/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/shop/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/shop/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+Route::post('/products/validate', [ProductValidationController::class, 'validateIds']);
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
