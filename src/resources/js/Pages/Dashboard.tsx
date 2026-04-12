@@ -34,7 +34,7 @@ function ParallaxDashboard()
                     </span>
                 </div>
             </div>
-            <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-purple-800 to-pink-800 text-white min-h-100vh">
+            <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-orange-800 to-blue-900 text-white min-h-100vh">
                 <div className="flex flex-col gap-4 mx-8 max-w-[80vw]">
                     <h1 className="text-4xl font-bold text-shadow-md text-shadow-gray-700">Server Side Development</h1>
                     <span className="flex flex-col gap-2 text-white">

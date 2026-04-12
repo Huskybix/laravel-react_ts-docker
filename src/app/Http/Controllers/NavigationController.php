@@ -25,9 +25,9 @@ class NavigationController extends Controller
 
         if ($user->role->value >= UserRole::Admin->value) 
         {
-            $links = array_merge($links, [
+            /*$links = array_merge($links, [
                 ['name' => 'Control Panel', 'route' => 'users'],
-            ]);
+            ]);*/
         }
 
         return $links;
