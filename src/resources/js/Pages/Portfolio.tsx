@@ -24,17 +24,17 @@ export default function Portfolio()
                             <h2 className="font-bold text-primaryOrange">This Website</h2>
                             <h3 className="font-semibold mt-4">Tech Stack</h3>
                         
-                            <div className="flex flex-row flex-wrap gap-2 items-start">
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Laravel</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">React</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Typescript</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Inertia.js</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Vite</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Zustand</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">MySQL</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Docker</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                            <div className="flex flex-row flex-wrap gap-2 items-start tech-pills">
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base  font-bold w-max text-shadow-md text-shadow-gray-500">Laravel</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">React</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Typescript</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Inertia.js</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Vite</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Zustand</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">MySQL</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Docker</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
                             </div>
                         </div>
 
@@ -45,6 +45,7 @@ export default function Portfolio()
                         <p>A hand crafted portfolio and personal website project to prove my PHP, Laravel and React competency outside of commercial work.</p>
                         <p>It features a variety of useful concepts and skills put to practice, such as utilizing Zustand state management for an online store, user logins and management, dynamic navigation choices based on user role, and a fully responsive design.</p>
                         <p>I also developed it within a Docker container from inception as a method of properly learning that technology, as prior to this I've only Docker for Azurite file storage on a different project aside from a few minor dabblings here and there.</p>
+                        <p>As part of a standard Laravel setup, it makes use of MySQL and nginx.</p>
                         <p>The code for this site is available to view on my <a href="https://github.com/Huskybix/laravel-react_ts-docker/" target="_blank" className="text-primaryOrange hover:underline">GitHub</a>.</p>
                     </span>
 
@@ -63,14 +64,14 @@ export default function Portfolio()
                             <h2 className="font-bold text-primaryOrange">Stable Micro Systems</h2>
 
                             <h3 className="font-semibold mt-4">Tech Stack</h3>
-                            <div className="flex flex-row flex-wrap gap-2">
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Javascript</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
+                            <div className="flex flex-row flex-wrap gap-2 tech-pills">
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Javascript</span>
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
                             </div>
                         </div>
                         
@@ -131,13 +132,13 @@ export default function Portfolio()
                             <h2 className="font-bold text-primaryOrange">BCS Careers Quiz Microsite</h2>
                             <h3 className="font-semibold mt-4">Tech Stack</h3>
                         
-                            <div className="flex flex-row flex-wrap gap-2 items-start">
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Vue.js</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                            <div className="flex flex-row flex-wrap gap-2 items-start tech-pills">
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base  font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Vue.js</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
                             </div>
                         </div>
 
@@ -175,15 +176,15 @@ export default function Portfolio()
                         <div className="flex flex-col gap-4 order-2 xl:order-1">
                             <h2 className="font-bold text-primaryOrange">Firebrand Training</h2>
                             <h3 className="font-semibold mt-4">Tech Stack</h3>
-                            <div className="flex flex-row flex-wrap gap-2">
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 py-0.5 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Javascript</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">Webpack</span>
-                                <span className="flex items-center bg-primaryOrangeDarkest rounded-xl px-3 text-base text-gray-200 font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
+                            <div className="flex flex-row flex-wrap gap-2 tech-pills">
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base  font-bold w-max text-shadow-md text-shadow-gray-500">Umbraco</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">.NET Core</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Angular</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Javascript</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Tailwind</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Node</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Webpack</span>
+                                <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">SQL Server</span>
                             </div>
                         </div>
                         
