@@ -25,7 +25,7 @@ export default function Portfolio()
                             <h3 className="font-semibold mt-4">Tech Stack</h3>
                         
                             <div className="flex flex-row flex-wrap gap-2 items-start tech-pills">
-                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base  font-bold w-max text-shadow-md text-shadow-gray-500">Laravel</span>
+                                <span className="flex items-center rounded-xl px-3 py-0.5 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Laravel</span>
                                 <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">React</span>
                                 <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Typescript</span>
                                 <span className="flex items-center rounded-xl px-3 text-base font-bold w-max text-shadow-md text-shadow-gray-500">Inertia.js</span>
