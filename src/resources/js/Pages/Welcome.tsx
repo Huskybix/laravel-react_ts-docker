@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
-import ScrollTrigger from 'https://esm.sh/gsap@3.11.0/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import WelcomeLayout from '@/Layouts/WelcomeLayout';
 import Sparkles from '@/Components/Sparkle';
 import FlipCard from '@/Components/FlipCard';
