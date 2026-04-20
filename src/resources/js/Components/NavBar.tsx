@@ -44,7 +44,7 @@ export default function NavBar({
     };
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-40 bg-navBackgroundMobile lg:bg-navBackground backdrop-blur-sm p-6 h-auto flex items-center justify-between">
+        <nav className="fixed top-0 left-0 right-0 z-999 bg-navBackgroundMobile lg:bg-navBackground backdrop-blur-sm p-6 h-auto flex items-center justify-between">
             <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between w-full">
                 <button className="lg:hidden text-gray-300 border border-transparent hover:text-white focus-visible:outline-none focus-visible:border-white rounded-sm h-8 w-8 cursor-pointer" onClick={() => setMenuOpen(prev => !prev)} aria-label="Toggle menu">
                     {menuOpen ? (
