@@ -1,6 +1,7 @@
 
 import heroImg from '@/Assets/Images/husky-logo.webp';
 import NavBar from '@/Components/NavBar';
+import Breadcrumbs from '@/Components/Breadcrumbs';
 import { PropsWithChildren, ReactNode, useState } from 'react';
 export default function LoginLayout({
     header,

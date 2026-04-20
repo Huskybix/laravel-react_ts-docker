@@ -11,17 +11,17 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductValidationController;
 
 Route::get('/', function () {
-    return Inertia::render('Dashboard', [
+    return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->name('dashboard');
+})->name('welcome');
 
 Route::get('/about', fn() => Inertia::render('About'))->name('about');
 Route::get('/portfolio', fn() => Inertia::render('Portfolio'))->name('portfolio');
-
+    
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/shop/cart', fn() => Inertia::render('Shop/Cart'))->name('shop.cart');
 Route::get('/shop/checkout', [CheckoutController::class, 'index'])->name('checkout.index');

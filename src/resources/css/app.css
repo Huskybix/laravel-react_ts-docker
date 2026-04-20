@@ -22,7 +22,9 @@
 }
 
 h1 {
-    font-size: var(--text-3xl);
+    @apply leading-tight;
+    font-size: var(--text-4xl);
+    font-weight: bold;
     color: var(--color-primaryOrange);
 }
 
@@ -36,6 +38,11 @@ h3 {
 
 h4 {
     font-size: var(--text-lg);
+}
+
+
+#app {
+    @apply w-full;
 }
 
 #mainWrapper {
@@ -54,4 +61,27 @@ h4 {
 .tech-pills span {
     background: var(--color-primaryOrangeDarkest);
     color: var(--text-gray-200);
+}
+
+.overlay {
+    background: linear-gradient(180deg,#1c1250,#6f1bb0,hsl(283,100%,9%));
+    z-index: -9999;
+    pointer-events: none;
+    overflow: hidden;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    opacity: 0.5;
+}
+
+.section {
+    position: relative;
+    box-sizing: content-box;
+    width: 100%;
+    padding-bottom: 40vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }

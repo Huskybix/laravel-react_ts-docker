@@ -31,19 +31,8 @@ export default function Contact()
     };
 
     return (
-        <FormLayout header={
-                <h1 className="text-xl font-semibold leading-tight">
-                    Contact Me
-                </h1>
-            }>
-            <Head title="Contact" />
-            
+        <>            
             <div className="flex flex-col gap-8 w-full w-full lg:max-w-[38rem]">
-                <span className="flex flex-col gap-2">
-                    <p>This form is hooked up to Formspree, a third party email service. Therefore if you've booted up this container after pulling this repo yourself and were curious if this page would even work, it does!</p>
-                    <p>Messages sent through it will reach me at my personal email address, all without me having to store my contact details in a public Git repository. Talk about ideal.</p>
-                </span>
-
                 <span className="flex flex-row gap-2">
                     <a href="https://www.linkedin.com/in/niall-storie-a74ab53b7/" target="_blank">
                         <img src={linkedInLogo} alt="LinkedIn Link" className="w-8 h-8" />
@@ -118,6 +107,6 @@ export default function Contact()
                     </PrimaryButton>
                 </form>
             </div>
-        </FormLayout>
+        </>
     );
 }

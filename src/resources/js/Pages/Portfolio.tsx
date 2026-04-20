@@ -10,7 +10,7 @@ export default function Portfolio()
     return (
         <MainLayout
             header={
-                <h1 className="text-xl font-semibold leading-tight">
+                <h1>
                     Portfolio
                 </h1>
             }
@@ -18,7 +18,7 @@ export default function Portfolio()
             <Head title="Portfolio" />
             
             <div className="flex flex-col gap-8">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 bg-navBackground rounded-xl p-4 md:p-8 shadow w-full">
                     <div className="flex flex-col xl:flex-row justify-between w-full items-start">
                         <div className="flex flex-col gap-4 order-2 xl:order-1">
                             <h2 className="font-bold text-primaryOrange">This Website</h2>
@@ -57,8 +57,7 @@ export default function Portfolio()
                         <p>In addition to the sidebar cart, a full screen cart is available via a link on desktop, or forced automatically on smaller devices. This ensures the cart stays responsive to ensure a solid user experience.</p>
                     </span>
                 </div>
-                <hr className="border-gray-300" />
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 bg-navBackground rounded-xl p-4 md:p-8 shadow w-full">
                     <div className="flex flex-col xl:flex-row justify-between w-full xl:items-center">
                         <div className="flex flex-col gap-4 order-2 xl:order-1 flex-grow">
                             <h2 className="font-bold text-primaryOrange">Stable Micro Systems</h2>
@@ -125,8 +124,8 @@ export default function Portfolio()
                         <p>All design work on the site was done by the client, with my role focusing on implementation and optimization, with the latter being particularly important given the large amount of high quality imagery on the site and editors who often make particularly expansive blog entries or detailed pages.</p>
                     </span>
                 </div>
-                <hr className="border-gray-300" />
-                <div className="flex flex-col gap-2">
+
+                <div className="flex flex-col gap-2 bg-navBackground rounded-xl p-4 md:p-8 shadow w-full">
                     <div className="flex flex-col xl:flex-row justify-between w-full items-start">
                         <div className="flex flex-col gap-4 order-2 xl:order-1">
                             <h2 className="font-bold text-primaryOrange">BCS Careers Quiz Microsite</h2>
@@ -170,8 +169,8 @@ export default function Portfolio()
                         <p>In the background the app keeps a cumulative score relating to answers given, with points allocated to each role based on the user's responses. The final scores then get passed off to an API on the back end which reroutes the user to the main careers page with their top result expanded, and runner-up roles highlighted.</p>
                     </span>
                 </div>
-                <hr className="border-gray-300" />
-                <div className="flex flex-col gap-2">
+
+                <div className="flex flex-col gap-2 bg-navBackground rounded-xl p-4 md:p-8 shadow w-full">
                     <div className="flex flex-col xl:flex-row justify-between w-full items-start">
                         <div className="flex flex-col gap-4 order-2 xl:order-1">
                             <h2 className="font-bold text-primaryOrange">Firebrand Training</h2>

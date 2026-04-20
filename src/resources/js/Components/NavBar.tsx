@@ -5,6 +5,7 @@ import { PageProps, NavLink as NavLinkType } from '@/types';
 import Dropdown from './Dropdown';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
+import { useActiveSection } from '@/Hooks/useActiveSection';
 
 import burger from '@/Assets/Images/menu-burger.png';
 import { useCartStore } from '@/Stores/useCartStore';
@@ -22,6 +23,26 @@ export default function NavBar({
     const { toggleCart } = useCartStore()
     const user = usePage().props.auth.user;
 
+    const activeSection = useActiveSection([
+        'intro-section',
+        'about-section',
+        'contact-section',
+    ]);
+
+    const isOnWelcome = route().current('welcome');
+
+    const handleNavClick = (e: React.MouseEvent, link: NavLinkType) => {
+        setMenuOpen(false);
+        
+        if (link.fragment && route().current(link.route)) {
+            e.preventDefault();
+            document.getElementById(link.fragment)?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    };
+
     return (
         <nav className="fixed top-0 left-0 right-0 z-40 bg-navBackgroundMobile lg:bg-navBackground backdrop-blur-sm p-6 h-auto flex items-center justify-between">
             <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between w-full">
@@ -36,21 +57,32 @@ export default function NavBar({
                 </button>
 
                 <div className={`lg:flex flex-col lg:flex-row gap-4 w-full ${menuOpen ? 'flex' : 'hidden'} `}>
-                    {navigation.links.map((link: NavLinkType) => (
-                        <React.Fragment key={link.route}>
+                    {navigation.links.map((link: NavLinkType) => {
+                        let isActive = route().current(link.route) && !link.fragment;
+
+                        if (isOnWelcome && link.fragment) {
+                            isActive = activeSection === link.fragment;
+                        }
+
+                        if (isOnWelcome && link.route === 'welcome' && !link.fragment) {
+                            isActive = activeSection === 'intro-section' || activeSection === null;
+                        }
+
+                        return (
+                            <React.Fragment key={link.route + (link.fragment ?? '')}>
                             <NavLink
-                                key={link.route}
-                                href={route(link.route)}
-                                active={route().current(link.route)}
-                                onClick={() => setMenuOpen(false)}
+                                href={route(link.route) + (link.fragment ? `#${link.fragment}` : '')}
+                                active={isActive}
+                                onClick={(e) => handleNavClick(e, link)}
                             >
                                 {link.name}
                             </NavLink>
                             <hr className="border-gray-200 lg:hidden" />
-                        </React.Fragment>
-                    ))}
+                            </React.Fragment>
+                        );
+                    })}
 
-                    {user != null ? (
+                    {user != null && (
                         <>
                         <NavLink key="Profile" href={route('profile.edit')} active={route().current('profile.edit')} onClick={() => setMenuOpen(false)} className="block lg:hidden">
                             Edit Profile
@@ -62,10 +94,6 @@ export default function NavBar({
                             Logout
                         </NavLink>
                         </>
-                    ) : (
-                        <NavLink key="Register" href={route('register')} active={route().current('register')} onClick={() => setMenuOpen(false)} className="block lg:hidden">
-                            Register
-                        </NavLink>
                     )}
                 </div>
             </div>
@@ -133,9 +161,6 @@ export default function NavBar({
                             View Cart
                         </SecondaryButton>
                     )}
-                    <PrimaryButton className="!hidden lg:!flex ms-4 min-w-max" onClick={() => window.location.href = '/register'}>
-                        Register Account
-                    </PrimaryButton>
                     </>
                 )}
         </nav>

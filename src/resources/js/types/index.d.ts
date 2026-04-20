@@ -8,6 +8,7 @@ export interface User {
 export interface NavLink {
     name: string;
     route: string;
+    fragment?: string;
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>,> = T & {
@@ -18,3 +19,8 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
         links: NavLink[];
     };
 };
+
+export interface BreadcrumbItem {
+    title: string;
+    href?: string;
+}

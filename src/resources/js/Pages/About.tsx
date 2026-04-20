@@ -1,19 +1,25 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Head } from '@inertiajs/react';
 import selfie from '@/Assets/Images/me.jpg';
+import { type BreadcrumbItem } from '@/types';
+
+const breadcrumbs: BreadcrumbItem[] = [
+  { title: 'Users', href: '/users' },
+  { title: 'Edit', href: '/users/1/edit' },
+];
 
 export default function About() 
 {
     return (
         <MainLayout
             header={
-                <h1 className="text-xl font-semibold leading-tight">
+                <h1>
                     About Me
                 </h1>
             }
         >
             <Head title="About Me" />
-            <div className="flex flex-col gap-8 items-center">
+            <div className="flex flex-col gap-8 items-center bg-navBackground rounded-xl p-4 md:p-8 shadow w-full">
                 <div className="flex flex-col gap-6">
                     <p>
                         Hey there! Thanks for stopping by. 
