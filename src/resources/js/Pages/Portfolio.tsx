@@ -152,7 +152,7 @@ export default function Portfolio()
                     </span>
 
                     <h3 className="font-semibold mt-4">Main Page</h3>
-                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
+                    <a href="https://www.bcs.org/it-careers/tech-career-quiz/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Main Page
                     </a>
                     <span className="flex flex-col gap-1">
@@ -162,7 +162,7 @@ export default function Portfolio()
                     </span>
 
                     <h3 className="font-semibold mt-4">Quiz Applet</h3>
-                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
+                    <a href="https://www.bcs.org/it-careers/tech-career-quiz/quiz/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Quiz Applet
                     </a>
                     <span className="flex flex-col gap-1">
@@ -191,7 +191,7 @@ export default function Portfolio()
                         <img src={fbLogo} alt="Hero Image" className="h-[67px] order-1 xl:order-2 mx-auto xl:mx-0 !mb-4 xl:mb-0" />
                     </div>
                     <h3 className="font-semibold mt-4">About</h3>
-                    <a href="https://www.stablemicrosystems.com/probes-and-attachments/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
+                    <a href="https://firebrand.training/" target="_blank" className="text-primaryOrange underline underline-offset-2 font-semibold hover:opacity-70 transition-opacity after:content-['_↗']">
                         Main Website
                     </a>
                     <span className="flex flex-col gap-1">
