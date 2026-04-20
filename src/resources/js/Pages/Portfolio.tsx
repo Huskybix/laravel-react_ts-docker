@@ -43,10 +43,11 @@ export default function Portfolio()
                     <h3 className="font-semibold mt-4">About</h3>
                     <span className="flex flex-col gap-1">
                         <p>A hand crafted portfolio and personal website project to prove my PHP, Laravel and React competency outside of commercial work.</p>
-                        <p>It features a variety of useful concepts and skills put to practice, such as utilizing Zustand state management for an online store, user logins and management, dynamic navigation choices based on user role, and a fully responsive design.</p>
-                        <p>I also developed it within a Docker container from inception as a method of properly learning that technology, as prior to this I've only Docker for Azurite file storage on a different project aside from a few minor dabblings here and there.</p>
-                        <p>As part of a standard Laravel setup, it makes use of MySQL and nginx.</p>
-                        <p>The code for this site is available to view on my <a href="https://github.com/Huskybix/laravel-react_ts-docker/" target="_blank" className="text-primaryOrange hover:underline">GitHub</a>.</p>
+                        <p>It features a variety of useful concepts and skills put to practice, such as utilizing Zustand state management for an online store, GSAP for fluid animations, and a little Three.js for a pinch of 3D magic.</p>
+                        <p>Behind the scenes it also has user logins and management features plus dynamic navigation choices based on user role.</p>
+                        <p>I developed it within a Docker container from inception as a method of properly learning that technology, as prior to this I've only ever used Docker for Azurite file storage on a different project aside from a few minor dabblings here and there.</p>
+                        <p>As part of a standard Laravel setup, it makes use of MySQL and nginx and is hosted on a Digitalocean Droplet running Ubuntu.</p>
+                        <p>The code for this site is available to view on my <a href="https://github.com/Huskybix/laravel-react_ts-docker/" target="_blank" className="text-primaryOrange hover:underline">GitHub</a>. All updates get automatically deployed to this live site via Github Actions, their CI/CD platform.</p>
                     </span>
 
                     <h3 className="font-semibold mt-4">The Shop</h3>

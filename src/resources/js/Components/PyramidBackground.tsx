@@ -6,7 +6,7 @@ import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeome
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
 
 const SECTION_COLORS = [
-    '#20e880',
+    '#00ff7b',
     '#a5099d',
     '#fff202',
     '#EEAC11',
