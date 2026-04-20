@@ -298,7 +298,6 @@ body {
   body {
     display: grid;
     place-items: center;
-    background: light-dark(white, black);
     min-height: 100vh;
     font-family: 'Geist', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial,
       sans-serif, system-ui;

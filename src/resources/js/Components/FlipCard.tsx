@@ -36,7 +36,7 @@ export default function FlipCard() {
             <div className={`flip-card ${flipped ? 'is-flipped' : ''}`}>
                 <div className="flip-card-inner">
                     {/* Front */}
-                    <div className="flip-card-front flex flex-col xl:flex-row gap-8">
+                    <div className="flip-card-front flex flex-col xl:flex-row gap-16 p-8 lg:p-12">
                         <img src={selfie} alt="Niall Storie" className="flip-card-image order-2 xl:order-1 w-full xl:w-[45%] md:mx-auto" />
                         <div className="flip-card-content order-1 xl:order-2">
                             <h2 className="text-primaryOrange text-shadow-2xs text-shadow-gray-500 !text-4xl">
@@ -75,7 +75,7 @@ export default function FlipCard() {
                     </div>
 
                     {/* Back */}
-                    <div className="flip-card-back flex flex-col xl:flex-row gap-8">
+                    <div className="flip-card-back flex flex-col xl:flex-row gap-16 p-8 !pb-4 lg:!p-12">
                         <div className="flip-card-content">
                             <h2 className="!text-4xl text-shadow-2xs text-shadow-gray-500 text-primaryOrange">
                                 Hobbies &amp; Interests

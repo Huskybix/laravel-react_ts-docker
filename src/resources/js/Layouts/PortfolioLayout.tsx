@@ -1,5 +1,4 @@
 import NavBar from '@/Components/NavBar';
-import PyramidBackground from '@/Components/PyramidBackground';
 import { PropsWithChildren, ReactNode, useState } from 'react';
 export default function Authenticated({
     header,
@@ -8,7 +7,6 @@ export default function Authenticated({
 
     return (
         <>
-        <PyramidBackground />
         <div className="overlay" aria-hidden="true">
 
         </div>
