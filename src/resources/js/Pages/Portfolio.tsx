@@ -239,7 +239,7 @@ function ExpandedContent({ project, onClose }: { project: Project; onClose: () =
                     <img
                         src={project.logo}
                         alt={project.name}
-                        className={`max-w-max object-contain max-h-14`}
+                        className={`max-w-[24rem] w-max object-contain max-h-14`}
                     />
                     <div>
                         <h2 className="font-bold text-primaryOrange text-xl md:text-2xl">{project.name}</h2>
