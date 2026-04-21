@@ -5,7 +5,7 @@ import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js';
 import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry.js';
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
 
-const IS_MOBILE = typeof window !== 'undefined' && (window.innerWidth <= 1024 || /Android|iPhone|iPad/i.test(navigator.userAgent));
+const is_mobile = typeof window !== 'undefined' && (window.innerWidth <= 1024 || /Android|iPhone|iPad/i.test(navigator.userAgent));
 
 const SECTION_COLORS = [
     '#00ff7b',
@@ -76,7 +76,7 @@ function Pyramid({
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const progress  = maxScroll > 0 ? scrollY.current / maxScroll : 0;
         const targetRot = progress * Math.PI * 2;
-        const lerpSpeed = IS_MOBILE ? 0.025 : 0.05;
+        const lerpSpeed = is_mobile ? 0.025 : 0.05;
 
         currentRot.current = THREE.MathUtils.lerp(currentRot.current, targetRot, lerpSpeed);
 
@@ -165,7 +165,7 @@ export default function PyramidBackground() {
 
     return (
         <div style={{position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', }}>
-        <Canvas camera={{ position: [0, 0, 5] }} dpr={IS_MOBILE ? 1 : Math.min(window.devicePixelRatio, 2)}>
+        <Canvas camera={{ position: [0, 0, 5] }} dpr={is_mobile ? 1 : Math.min(window.devicePixelRatio, 2)}>
             <ambientLight intensity={0.1} />
 
             <DiagonalSpotLight />

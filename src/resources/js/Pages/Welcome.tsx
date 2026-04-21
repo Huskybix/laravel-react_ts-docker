@@ -7,6 +7,8 @@ import FlipCard from '@/Components/FlipCard';
 import ContactForm from '@/Components/ContactForm';
 import '@css/welcomePage.css';
 
+const is_mobile = typeof window !== 'undefined' && (window.innerWidth <= 1024 || /Android|iPhone|iPad/i.test(navigator.userAgent));
+
 const WORDS = [
     { text: 'make websites.', color: '#ffb71a' },
     { text: 'solve problems.', color: '#4dffbb' },
@@ -71,17 +73,20 @@ export default function WelcomePage() {
             },
         });
 
-        gsap.from('.flip-section', {
-            x: '-100vw',
-            opacity: 0,
-            ease: 'power3.out',
-            duration: 0.8,
-            scrollTrigger: {
-                trigger: '.flip-section',
-                start: 'top 60%',
-                toggleActions: 'play none none reverse',
-            },
-        });
+        if(!is_mobile)
+        {
+            gsap.from('.flip-section', {
+                x: '-100vw',
+                opacity: 0,
+                ease: 'power3.out',
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: '.flip-section',
+                    start: 'top 60%',
+                    toggleActions: 'play none none reverse',
+                },
+            });
+        }
 
         gsap.fromTo('.develop-section',
         {
