@@ -132,9 +132,9 @@ export default function WelcomePage() {
         ScrollTrigger.create({
             trigger: items[0],
             endTrigger: items[items.length - 1],
-            start: 'center center',
-            end: 'center center',
-            animation: scroller,
+            start: is_mobile ? 'center 60%' : 'center center',
+            end: is_mobile ? 'center 40%' : 'center center',
+            animation: dimmer,
             scrub: 0.2,
         });
 

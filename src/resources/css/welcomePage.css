@@ -102,7 +102,7 @@ body {
         animation-name: brighten;
         animation-fill-mode: both;
         animation-timing-function: linear;
-        animation-range: contain calc(50% - 1lh) calc(50% + 1lh);
+        animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
         animation-timeline: view();
     }
 
