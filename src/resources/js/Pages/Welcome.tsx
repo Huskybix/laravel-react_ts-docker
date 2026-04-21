@@ -105,52 +105,49 @@ export default function WelcomePage() {
             },
         });
         
-        if(!is_mobile)
-        {
-            const items = gsap.utils.toArray<HTMLElement>('ul li');
+        const items = gsap.utils.toArray<HTMLElement>('ul li');
 
-            gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) });
+        gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) });
 
-            const dimmer = gsap
-                .timeline()
-                .to(items.slice(1), { opacity: 1, stagger: 0.5 })
-                .to(items.slice(0, items.length - 1), { opacity: 0.2, stagger: 0.5 }, 0);
+        const dimmer = gsap
+            .timeline()
+            .to(items.slice(1), { opacity: 1, stagger: 0.5 })
+            .to(items.slice(0, items.length - 1), { opacity: 0.2, stagger: 0.5 }, 0);
 
-            ScrollTrigger.create({
-                trigger: items[0],
-                endTrigger: items[items.length - 1],
-                start: 'center center',
-                end: 'center center',
-                animation: dimmer,
-                scrub: 0.2,
-            });
+        ScrollTrigger.create({
+            trigger: items[0],
+            endTrigger: items[items.length - 1],
+            start: 'center center',
+            end: 'center center',
+            animation: dimmer,
+            scrub: 0.2,
+        });
 
-            const scroller = gsap.timeline().fromTo(
-                html,
-                { '--hue': start },
-                { '--hue': end, ease: 'none' }
-            );
+        const scroller = gsap.timeline().fromTo(
+            html,
+            { '--hue': start },
+            { '--hue': end, ease: 'none' }
+        );
 
-            ScrollTrigger.create({
-                trigger: items[0],
-                endTrigger: items[items.length - 1],
-                start: 'center center',
-                end: 'center center',
-                animation: scroller,
-                scrub: 0.2,
-            });
+        ScrollTrigger.create({
+            trigger: items[0],
+            endTrigger: items[items.length - 1],
+            start: 'center center',
+            end: 'center center',
+            animation: scroller,
+            scrub: 0.2,
+        });
 
-            return () => {
-                ScrollTrigger.getAll().forEach((t: { kill: () => any; }) => t.kill());
-                delete html.dataset.theme;
-                delete html.dataset.animate;
-                delete html.dataset.snap;
-                delete html.dataset.syncScrollbar;
-                html.style.removeProperty('--start');
-                html.style.removeProperty('--hue');
-                html.style.removeProperty('--end');
-            };
-        }
+        return () => {
+            ScrollTrigger.getAll().forEach((t: { kill: () => any; }) => t.kill());
+            delete html.dataset.theme;
+            delete html.dataset.animate;
+            delete html.dataset.snap;
+            delete html.dataset.syncScrollbar;
+            html.style.removeProperty('--start');
+            html.style.removeProperty('--hue');
+            html.style.removeProperty('--end');
+        };
     }, []);
 
     return (
