@@ -121,6 +121,9 @@ export default function WelcomePage() {
             end: 'center center',
             animation: dimmer,
             scrub: 0.2,
+            onUpdate: (self) => {
+                console.log('progress:', self.progress.toFixed(3), '| direction:', self.direction);
+            },
         });
 
         const scroller = gsap.timeline().fromTo(
@@ -137,8 +140,6 @@ export default function WelcomePage() {
             animation: scroller,
             scrub: 0.2,
         });
-
-        setTimeout(() => ScrollTrigger.refresh(), 500);
 
         return () => {
             ScrollTrigger.getAll().forEach((t: { kill: () => any; }) => t.kill());
