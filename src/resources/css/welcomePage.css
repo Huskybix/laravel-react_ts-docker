@@ -166,14 +166,14 @@ body {
         list-style-type: none;
     }
 
-    [data-snap='true'] {
-        scroll-snap-type: y proximity;
+    @media (min-width: 1025px) {
+        [data-snap='true'] {
+            scroll-snap-type: y proximity;
+        }
     }
 
     [data-snap='true'] li {
         scroll-snap-align: center;
-        scroll-margin-top: calc((100svh - 100vh) / 2);
-        scroll-margin-bottom: calc((100svh - 100vh) / 2);
     }
     
 
