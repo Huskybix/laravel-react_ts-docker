@@ -121,9 +121,6 @@ export default function WelcomePage() {
             end: 'center center',
             animation: dimmer,
             scrub: 0.2,
-            onUpdate: (self) => {
-                console.log('progress:', self.progress.toFixed(3), '| direction:', self.direction);
-            },
         });
 
         const scroller = gsap.timeline().fromTo(

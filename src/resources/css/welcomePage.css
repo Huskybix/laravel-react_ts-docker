@@ -172,6 +172,7 @@ body {
 
     [data-snap='true'] li {
         scroll-snap-align: center;
+        scroll-margin-top: calc((100svh - 100vh) / 2);
     }
     
 
