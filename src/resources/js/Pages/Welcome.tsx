@@ -147,10 +147,10 @@ export default function WelcomePage() {
 
     return (
         <WelcomeLayout>
-            <header id="intro-section" className="intro-section fluid">
+            <header id="intro-section" className="intro-section fluid pt-[30vh] md:pt-[40vh] lg:pt-[50vh]">
                 <h1 className="intro-hi">Hi there.</h1>
                 <p className="intro-name">I'm <span className="text-primaryOrange">Niall</span>.</p>
-                <p className="intro-role">
+                <p className="intro-role !text-center">
                 <Sparkles>Web Developer</Sparkles>
                 </p>
             </header>
@@ -158,7 +158,7 @@ export default function WelcomePage() {
             <FlipCard />
 
             <main>
-                <section className="words-section content fluid mb-40 justify-center">
+                <section className="words-section content fluid mb-40 justify-center px-8 md:px-24 lg:px-40">
                     <h2>
                         <span aria-hidden="true">
                         I&nbsp;
@@ -179,7 +179,7 @@ export default function WelcomePage() {
                     </ul>
                 </section>
 
-                <section className="develop-section content fluid flex w-full justify-center">
+                <section className="develop-section content fluid flex w-full justify-center px-8 md:px-24 lg:px-40">
                     <div className="font-bold text-center">
                         I develop <span className="text-primaryOrange glow-pulse">exactly</span> what you need.
                     </div>

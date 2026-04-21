@@ -6,7 +6,6 @@
 }
 
 .flip-card {
-  width: min(70vw);
   perspective: 1200px;
 }
 
@@ -18,7 +17,7 @@
 
 .flip-card-front,
 .flip-card-back {
-  grid-area: 1 / 1;          /* both faces occupy the same grid cell */
+  grid-area: 1 / 1;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: 1.5rem;
@@ -69,7 +68,7 @@
   flex: 1;
   overflow-y: auto;
   font-size: clamp(1rem, 1.4vw, 1.5rem);
-    line-height: 1.6;
+  line-height: 1.6;
 }
 
 .flip-btn {
@@ -80,11 +79,9 @@
   border: 1px solid color-mix(in oklch, canvasText, transparent 70%);
   cursor: pointer;
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
   transition: background 0.2s;
 }
-
-/* ── Gallery ─────────────────────────────────────────────────────── */
 
 .flip-card-gallery {
   display: flex;

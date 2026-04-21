@@ -87,9 +87,6 @@ body {
     [data-theme='dark'] {
         --lightness: 75%;
     }
-    [data-theme='light'] {
-        --lightness: 65%;
-    }
 
     ul {
         --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
@@ -150,7 +147,6 @@ body {
         display: flex;
         line-height: 1.25;
         width: 100%;
-        padding: 0 5rem;
     }
 
     .content h2 {
@@ -225,7 +221,6 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        padding-top: 50vh;
         padding-inline: 5rem;
         width: 100%;
         overflow-x: hidden;
@@ -345,7 +340,7 @@ body {
 
   html {
     color-scheme: light dark;
-    --font-size-min: 14;
+    --font-size-min: 18;
     --font-size-max: 24;
     --font-ratio-min: 1.1;
     --font-ratio-max: 1.33;

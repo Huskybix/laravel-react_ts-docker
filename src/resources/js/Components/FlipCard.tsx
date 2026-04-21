@@ -32,8 +32,8 @@ export default function FlipCard() {
     };
 
     return (
-        <section id="about-section" className="flip-section">
-            <div className={`flip-card ${flipped ? 'is-flipped' : ''}`}>
+        <section id="about-section" className="flip-section pt-16">
+            <div className={`flip-card w-[90vw] md:w-[80vw] lg:w-[70vw] ${flipped ? 'is-flipped' : ''}`}>
                 <div className="flip-card-inner">
                     {/* Front */}
                     <div className="flip-card-front flex flex-col xl:flex-row gap-16 p-8 lg:p-12">
