@@ -5,72 +5,14 @@ import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js';
 import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry.js';
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
 
+const IS_MOBILE = typeof window !== 'undefined' && (window.innerWidth <= 1024 || /Android|iPhone|iPad/i.test(navigator.userAgent));
+
 const SECTION_COLORS = [
     '#00ff7b',
     '#a5099d',
     '#fff202',
     '#EEAC11',
 ];
-
-// Soft-edged volumetric beam — fades radially so no hard cone edge is visible
-function VolumetricBeam({
-    position,
-    rotation,
-    length = 8,
-    radius = 1.2,
-}: {
-    position: [number, number, number];
-    rotation: [number, number, number];
-    length?: number;
-    radius?: number;
-}) {
-    const material = useMemo(() => new THREE.ShaderMaterial({
-        transparent: true,
-        depthWrite: false,
-        side: THREE.DoubleSide,
-        blending: THREE.AdditiveBlending,
-        uniforms: {
-            color:  { value: new THREE.Color('#ffffff') },
-            length: { value: length },
-        },
-        vertexShader: `
-        varying vec3 vPos;
-        varying vec2 vUv;
-        void main() {
-            vPos = position;
-            vUv  = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-        `,
-        fragmentShader: `
-        uniform vec3  color;
-        uniform float length;
-        varying vec3  vPos;
-        varying vec2  vUv;
-
-        void main() {
-            // Distance from the cone's central axis (for radial soft edge)
-            // The cone is along Y axis; radius grows linearly from tip to base
-            float yNorm    = (vPos.y + length * 0.5) / length;  // 0 at tip, 1 at base
-            float maxR     = mix(0.0, 1.0, yNorm);               // cone silhouette
-            float distFromAxis = length(vPos.xz);
-            float radial   = 1.0 - smoothstep(maxR * 0.3, maxR, distFromAxis);
-
-            // Fade along length — bright at top, faint at bottom
-            float lengthFade = 1.0 - yNorm;
-
-            float alpha = radial * lengthFade * 0.25;
-            gl_FragColor = vec4(color, alpha);
-        }
-        `,
-    }), [length]);
-
-    return (
-        <mesh position={position} rotation={rotation} material={material}>
-            <coneGeometry args={[radius, length, 48, 1, true]} />
-        </mesh>
-    );
-}
 
 function Pyramid({
     scrollY,
@@ -210,28 +152,13 @@ export default function PyramidBackground() {
         return () => observer.disconnect();
     }, []);
 
-  /*
-    To aim the beam from [3.5, 5, 3] toward [0, 0, 0]:
-    - The cone's default orientation has the wide end at +Y (top), tip at -Y (bottom)
-    - We want the wide end at the light source, tip pointing toward the pyramid
-    - Direction vector from light to target, then compute rotation
-  */
-    const beamPos: [number, number, number]  = [3.5, 5, 3];
-    const beamRot: [number, number, number]  = [
-        -Math.atan2(3, Math.sqrt(3.5 * 3.5 + 5 * 5)),  // tilt toward -Z
-        0,
-        Math.atan2(3.5, 5),                            // tilt toward -X
-    ];
-
     return (
         <div style={{position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', }}>
-        <Canvas camera={{ position: [0, 0, 5] }}>
+        <Canvas camera={{ position: [0, 0, 5] }} dpr={IS_MOBILE ? 1 : Math.min(window.devicePixelRatio, 2)}>
             <ambientLight intensity={0.1} />
 
             <DiagonalSpotLight />
-
-            <VolumetricBeam position={beamPos} rotation={beamRot} length={7} radius={1.2} />
-
+            
             <Pyramid scrollY={scrollY} targetColor={targetColor} />
         </Canvas>
         </div>
