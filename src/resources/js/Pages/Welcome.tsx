@@ -49,16 +49,6 @@ export default function WelcomePage() {
 
         gsap.registerPlugin(ScrollTrigger);
 
-        let resizeTimer: ReturnType<typeof setTimeout>;
-        const onResize = () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                ScrollTrigger.refresh();
-            }, 200);
-        };
-
-        window.addEventListener('resize', onResize);
-
         gsap.from('.intro-name', {
             x: '100vw',
             opacity: 0,
@@ -109,13 +99,14 @@ export default function WelcomePage() {
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: '.words-section',
-                start: 'bottom 50%',
-                end: 'bottom 5%',
-                scrub: 0.5,
+                start: 'bottom 50%',  // starts as words-section is finishing
+                end: 'bottom 5%',    // fully slid in by the time words is well past
+                scrub: 0.5,           // smooth scroll-linked animation
             },
         });
 
         const items = gsap.utils.toArray<HTMLElement>('ul li');
+        const centerY = `center ${Math.round(window.innerHeight / 2)}px`;
 
         gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) });
 
@@ -127,8 +118,8 @@ export default function WelcomePage() {
         ScrollTrigger.create({
             trigger: items[0],
             endTrigger: items[items.length - 1],
-            start: 'center center',
-            end: 'center center',
+            start: centerY,
+            end: centerY,
             animation: dimmer,
             scrub: 0.2,
         });
@@ -142,14 +133,13 @@ export default function WelcomePage() {
         ScrollTrigger.create({
             trigger: items[0],
             endTrigger: items[items.length - 1],
-            start: 'center center',
-            end: 'center center',
+            start: centerY,
+            end: centerY,
             animation: scroller,
             scrub: 0.2,
         });
 
         return () => {
-            window.removeEventListener('resize', onResize);
             ScrollTrigger.getAll().forEach((t: { kill: () => any; }) => t.kill());
             delete html.dataset.theme;
             delete html.dataset.animate;
