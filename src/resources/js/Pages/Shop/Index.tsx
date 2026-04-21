@@ -23,6 +23,14 @@ export default function ShopIndex({ auth, products }: Props) {
     const getQuantityInCart = (id: number) =>
         items.find(i => i.id === id)?.quantity ?? 0
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 1024) setCartOpen(false);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [setCartOpen]);
+
     return (
         <MainLayout header={
                 <h1 className="text-xl font-semibold leading-tight">
@@ -61,18 +69,15 @@ export default function ShopIndex({ auth, products }: Props) {
                                         <span className="text-gray-500 text-sm">{product.stock} in stock</span>
                                     </div>
 
-                                    <button onClick={() => { addItem(product); setCartOpen(true); }} className="mt-3 w-full bg-primaryOrange hover:bg-primaryOrangeDarker cursor-pointer text-gray-800 text-sm font-medium py-2 px-4 transition-colors ">
+                                    <button onClick={() => { addItem(product); if (window.innerWidth >= 1024) setCartOpen(true); }} className="mt-3 w-full bg-primaryOrange hover:bg-primaryOrangeDarker cursor-pointer text-gray-800 text-sm font-medium py-2 px-4 transition-colors ">
                                         {qty > 0 ? `Add another (${qty} in cart)` : 'Add to Cart'}
                                     </button>
                                 </div>
-
-                                
                             </div>
                         )
                     })}
                 </div>
             </div>
-            
         </MainLayout>
     )
 }
