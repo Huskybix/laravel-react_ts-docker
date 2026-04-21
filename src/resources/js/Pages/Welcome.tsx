@@ -108,7 +108,7 @@ export default function WelcomePage() {
         const items = gsap.utils.toArray<HTMLElement>('ul li');
 
         gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) });
-
+        
         const dimmer = gsap
             .timeline()
             .to(items.slice(1), { opacity: 1, stagger: 0.5 })
@@ -121,6 +121,9 @@ export default function WelcomePage() {
             end: 'center center',
             animation: dimmer,
             scrub: 0.2,
+            onUpdate: (self) => {
+                console.log('progress:', self.progress.toFixed(3), '| direction:', self.direction);
+            },
         });
 
         const scroller = gsap.timeline().fromTo(
@@ -132,9 +135,9 @@ export default function WelcomePage() {
         ScrollTrigger.create({
             trigger: items[0],
             endTrigger: items[items.length - 1],
-            start: is_mobile ? 'center 60%' : 'center center',
-            end: is_mobile ? 'center 40%' : 'center center',
-            animation: dimmer,
+            start: 'center center',
+            end: 'center center',
+            animation: scroller,
             scrub: 0.2,
         });
 
