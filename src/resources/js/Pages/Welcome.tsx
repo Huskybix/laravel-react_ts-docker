@@ -49,6 +49,16 @@ export default function WelcomePage() {
 
         gsap.registerPlugin(ScrollTrigger);
 
+        let resizeTimer: ReturnType<typeof setTimeout>;
+        const onResize = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 200);
+        };
+
+        window.addEventListener('resize', onResize);
+
         gsap.from('.intro-name', {
             x: '100vw',
             opacity: 0,
@@ -99,12 +109,12 @@ export default function WelcomePage() {
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: '.words-section',
-                start: 'bottom 50%',  // starts as words-section is finishing
-                end: 'bottom 5%',    // fully slid in by the time words is well past
-                scrub: 0.5,           // smooth scroll-linked animation
+                start: 'bottom 50%',
+                end: 'bottom 5%',
+                scrub: 0.5,
             },
         });
-        
+
         const items = gsap.utils.toArray<HTMLElement>('ul li');
 
         gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) });
@@ -139,6 +149,7 @@ export default function WelcomePage() {
         });
 
         return () => {
+            window.removeEventListener('resize', onResize);
             ScrollTrigger.getAll().forEach((t: { kill: () => any; }) => t.kill());
             delete html.dataset.theme;
             delete html.dataset.animate;
