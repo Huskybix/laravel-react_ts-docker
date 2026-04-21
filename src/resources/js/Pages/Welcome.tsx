@@ -106,7 +106,7 @@ export default function WelcomePage() {
         });
 
         const items = gsap.utils.toArray<HTMLElement>('ul li');
-        const centerY = `center ${Math.round(window.innerHeight / 2)}px`;
+        const centerY = `center ${Math.round(screen.height / 2)}px`;
 
         gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) });
 
