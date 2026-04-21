@@ -99,14 +99,13 @@ export default function WelcomePage() {
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: '.words-section',
-                start: 'bottom 50%',  // starts as words-section is finishing
-                end: 'bottom 5%',    // fully slid in by the time words is well past
-                scrub: 0.5,           // smooth scroll-linked animation
+                start: 'bottom 50%',
+                end: 'bottom 5%',
+                scrub: 0.5,
             },
         });
 
         const items = gsap.utils.toArray<HTMLElement>('ul li');
-        const centerY = `center ${Math.round(screen.height / 2)}px`;
 
         gsap.set(items, { opacity: (i) => (i !== 0 ? 0.2 : 1) });
 
@@ -115,31 +114,46 @@ export default function WelcomePage() {
             .to(items.slice(1), { opacity: 1, stagger: 0.5 })
             .to(items.slice(0, items.length - 1), { opacity: 0.2, stagger: 0.5 }, 0);
 
-        ScrollTrigger.create({
-            trigger: items[0],
-            endTrigger: items[items.length - 1],
-            start: centerY,
-            end: centerY,
-            animation: dimmer,
-            scrub: 0.2,
-        });
-
         const scroller = gsap.timeline().fromTo(
             html,
             { '--hue': start },
             { '--hue': end, ease: 'none' }
         );
 
-        ScrollTrigger.create({
+        const getCenterY = () =>
+            `center ${Math.round((visualViewport?.height ?? window.innerHeight) / 2)}px`;
+
+        const dimmerTrigger = ScrollTrigger.create({
             trigger: items[0],
             endTrigger: items[items.length - 1],
-            start: centerY,
-            end: centerY,
+            start: getCenterY(),
+            end: getCenterY(),
+            animation: dimmer,
+            scrub: 0.2,
+        });
+
+        const scrollerTrigger = ScrollTrigger.create({
+            trigger: items[0],
+            endTrigger: items[items.length - 1],
+            start: getCenterY(),
+            end: getCenterY(),
             animation: scroller,
             scrub: 0.2,
         });
 
+        const updateCenter = () => {
+            const centerY = getCenterY();
+            dimmerTrigger.vars.start = centerY;
+            dimmerTrigger.vars.end = centerY;
+            scrollerTrigger.vars.start = centerY;
+            scrollerTrigger.vars.end = centerY;
+            ScrollTrigger.refresh();
+        };
+
+        visualViewport?.addEventListener('resize', updateCenter);
+
         return () => {
+            visualViewport?.removeEventListener('resize', updateCenter);
             ScrollTrigger.getAll().forEach((t: { kill: () => any; }) => t.kill());
             delete html.dataset.theme;
             delete html.dataset.animate;
