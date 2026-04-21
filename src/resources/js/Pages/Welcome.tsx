@@ -112,7 +112,7 @@ export default function WelcomePage() {
         const dimmer = gsap
             .timeline()
             .to(items.slice(1), { opacity: 1, stagger: 0.5 })
-            .to(items.slice(0, items.length - 1), { opacity: 0.2, stagger: 0.5 }, 0);
+            .to(items.slice(0, items.length - 1), { opacity: 0.2, stagger: 0.5, immediateRender: false }, 0);
 
         ScrollTrigger.create({
             trigger: items[0],
