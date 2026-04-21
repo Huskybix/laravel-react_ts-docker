@@ -112,7 +112,7 @@ export default function WelcomePage() {
         const dimmer = gsap
             .timeline()
             .to(items.slice(1), { opacity: 1, stagger: 0.5 })
-            .to(items.slice(0, items.length - 1), { opacity: 0.2, stagger: 0.5, immediateRender: false }, 0);
+            .to(items.slice(0, items.length - 1), { opacity: 0.2, stagger: 0.5 }, 0);
 
         ScrollTrigger.create({
             trigger: items[0],
@@ -121,6 +121,9 @@ export default function WelcomePage() {
             end: 'center center',
             animation: dimmer,
             scrub: 0.2,
+            onUpdate: (self) => {
+                console.log('progress:', self.progress.toFixed(3), '| direction:', self.direction);
+            },
         });
 
         const scroller = gsap.timeline().fromTo(
