@@ -76,13 +76,15 @@ function Pyramid({
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const progress  = maxScroll > 0 ? scrollY.current / maxScroll : 0;
         const targetRot = progress * Math.PI * 2;
-        currentRot.current = THREE.MathUtils.lerp(currentRot.current, targetRot, 0.05);
+        const lerpSpeed = IS_MOBILE ? 0.025 : 0.05;
+
+        currentRot.current = THREE.MathUtils.lerp(currentRot.current, targetRot, lerpSpeed);
 
         groupRef.current.rotation.y = currentRot.current;
         groupRef.current.rotation.x = currentRot.current * 0.25;
 
         if (solidMatRef.current) {
-            currentColor.current.lerp(targetColor.current, 0.05);
+            currentColor.current.lerp(targetColor.current, lerpSpeed);
             solidMatRef.current.color.copy(currentColor.current);
         }
     });
@@ -122,7 +124,16 @@ export default function PyramidBackground() {
     const targetColor = useRef(new THREE.Color(SECTION_COLORS[0]));
 
     useEffect(() => {
-        const onScroll = () => { scrollY.current = window.scrollY; };
+        let ticking = false;
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    scrollY.current = window.scrollY;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
         window.addEventListener('scroll', onScroll, { passive: true });
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
