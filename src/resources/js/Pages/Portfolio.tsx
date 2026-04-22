@@ -7,7 +7,7 @@ import TiltCard from '@/Components/TiltCard';
 
 function ExpandedContent({ project, onClose }: { project: Project; onClose: () => void }) {
     return (
-        <div className="flex flex-col h-full items-center">
+        <div className="flex flex-col h-full items-center py-8">
             <div className="flex flex-col lg:flex-row pb-6 justify-between border-b border-white/10 w-[90vw] md:w-[80vw] lg:w-[75vw]">
                 <div className="flex gap-4 flex-col flex-grow w-full lg:w-1/2 order-2 lg:order-1">
                     <h2 className="font-bold text-primaryOrange text-xl md:text-2xl">{project.name}</h2>
