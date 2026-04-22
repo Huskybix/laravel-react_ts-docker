@@ -7,38 +7,34 @@ import TiltCard from '@/Components/TiltCard';
 
 function ExpandedContent({ project, onClose }: { project: Project; onClose: () => void }) {
     return (
-        <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/10 shrink-0">
-                <div className="flex gap-4 flex-col">
-                    <img
-                        src={project.logo}
-                        alt={project.name}
-                        className={`max-w-[24rem] w-max object-contain max-h-14`}
-                    />
-                    <div>
-                        <h2 className="font-bold text-primaryOrange text-xl md:text-2xl">{project.name}</h2>
-                        <div className="flex flex-row flex-wrap gap-1.5 mt-2">
-                            {project.stack.map(s => (
-                                <span key={s} className="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/5 text-white/60 border border-white/10">
-                                    {s}
-                                </span>
-                            ))}
-                        </div>
+        <div className="flex flex-col h-full items-center">
+            <div className="flex flex-col lg:flex-row pb-6 justify-between border-b border-white/10 w-[90vw] md:w-[80vw] lg:w-[75vw]">
+                <div className="flex gap-4 flex-col flex-grow w-full lg:w-1/2 order-2 lg:order-1">
+                    <h2 className="font-bold text-primaryOrange text-xl md:text-2xl">{project.name}</h2>
+                    <div className="flex flex-row flex-wrap gap-1.5 mt-2">
+                        {project.stack.map(s => (
+                            <span key={s} className="text-xs font-semibold px-2 py-0.5 rounded-full bg-primaryOrangeDarker text-gray-200 border border-white/10">
+                                {s}
+                            </span>
+                        ))}
                     </div>
                 </div>
-                <button
-                    onClick={onClose}
-                    className="ml-4 shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/15 text-white/60 hover:text-white transition-colors text-lg font-light"
-                    aria-label="Close"
-                >
-                    ✕
-                </button>
+                <div className="flex flex-row gap-4 justify-between lg:justify-end order-1 lg:order-2 mb-4 lg:mb-0 min-w-0 overflow-hidden">
+                    <img 
+                        src={project.logo} 
+                        alt={project.name} 
+                        className="w-full max-w-[24rem] object-contain object-left max-h-14" 
+                    />
+                    <button onClick={onClose} className="ml-4 shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/15 text-white/60 hover:text-white transition-colors text-lg font-light" aria-label="Close">
+                        ✕
+                    </button>
+                    </div>
             </div>
 
-            <div className="overflow-y-auto p-6 md:p-8 flex flex-col gap-8">
+            <div className="overflow-y-auto pt-6 flex flex-col gap-8 w-[90vw] md:w-[80vw] lg:w-[75vw]">
                 {project.sections.map((section) => (
                     <div key={section.title} className="flex flex-col gap-3">
-                        <h3 className="font-semibold text-white/90 text-base">{section.title}</h3>
+                        <h3 className="font-semibold text-gray-100 text-base">{section.title}</h3>
                         {section.links.length > 0 && (
                             <div className="flex flex-row flex-wrap gap-3">
                                 {section.links.map(link => (
@@ -54,7 +50,7 @@ function ExpandedContent({ project, onClose }: { project: Project; onClose: () =
                                 ))}
                             </div>
                         )}
-                        <div className="flex flex-col gap-1.5 text-white/70 text-sm leading-relaxed">
+                        <div className="flex flex-col gap-1.5 text-gray-200 text-sm leading-relaxed">
                             {section.body.map((para, i) => (
                                 <p key={i}>{para}</p>
                             ))}
