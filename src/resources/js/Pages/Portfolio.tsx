@@ -182,18 +182,20 @@ export default function Portfolio() {
     tlRef.current = tl;
 }, [activeId]);
 
-    // Escape key
     useEffect(() => {
-        if (!activeId) return;
-        const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') handleClose(); };
-        window.addEventListener('keydown', handler);
-        return () => window.removeEventListener('keydown', handler);
-    }, [activeId, handleClose]);
+        gsap.set(floatRef.current, { display: 'none' });
 
-    // Hide float on mount
-    useEffect(() => {
-        if (floatRef.current) gsap.set(floatRef.current, { display: 'none' });
+        return () => {
+            document.body.style.overflow = '';
+        };
     }, []);
+
+useEffect(() => {
+    if (!activeId) return;
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') handleClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+}, [activeId, handleClose]);
 
     return (
         <PortfolioLayout>
