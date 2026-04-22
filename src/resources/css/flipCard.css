@@ -24,9 +24,6 @@
   border: 1px solid color-mix(in oklch, canvasText, transparent 80%);
   background: color-mix(in oklch, canvas, transparent 0%);
   backdrop-filter: blur(12px);
-  overflow: hidden;
-  display: flex;
-  align-items: stretch;
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
@@ -56,30 +53,24 @@
 
 .flip-card-image {
   object-fit: cover;
-  flex-shrink: 0;
   border-radius: 0.5rem;
 }
 
 .flip-card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   gap: 1rem;
-  flex: 1;
   overflow-y: auto;
-  font-size: clamp(1rem, 1.4vw, 1.5rem);
+  font-size: clamp(.75rem, 1.2vw, 1rem);
   line-height: 1.6;
 }
 
 .flip-btn {
   align-self: flex-start;
-  margin-top: auto;
   padding: 0.5rem 1.25rem;
   border-radius: .75rem;
   border: 1px solid color-mix(in oklch, canvasText, transparent 70%);
   cursor: pointer;
   font-family: inherit;
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  font-size: clamp(.75rem, 1vw, 1rem);
   transition: background 0.2s;
 }
 
@@ -88,6 +79,7 @@
   flex-direction: column;
   flex-shrink: 0;
   gap: 0.75rem;
+  position: relative;
 }
 
 .gallery-image-wrap {
@@ -110,11 +102,15 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: 1rem;
 }
 
 .gallery-arrow {
-  background: transparent;
-  border: 1px solid color-mix(in oklch, canvasText, transparent 70%);
+  background: rgba(0,0,0,.6);
+  border: 1px solid var(--color-primaryOrange);
   color: canvasText;
   border-radius: 999px;
   width: 2rem;
@@ -144,13 +140,13 @@
   height: 0.5rem;
   border-radius: 999px;
   border: none;
-  background: color-mix(in oklch, canvasText, transparent 70%);
+  background: #333;
   cursor: pointer;
   padding: 0;
   transition: background 0.2s, transform 0.2s;
 }
 
 .gallery-dot.is-active {
-  background: canvasText;
+  background: var(--color-primaryOrange);
   transform: scale(1.3);
 }
