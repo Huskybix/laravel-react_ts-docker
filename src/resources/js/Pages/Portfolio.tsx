@@ -25,7 +25,7 @@ function ExpandedContent({ project, onClose }: { project: Project; onClose: () =
                         alt={project.name} 
                         className="w-full max-w-[24rem] object-contain object-left max-h-14" 
                     />
-                    <button onClick={onClose} className="ml-4 shrink-0 w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/15 text-white/60 hover:text-white transition-colors text-lg font-light" aria-label="Close">
+                    <button onClick={onClose} className="ml-4 shrink-0 w-9 h-9 flex items-center justify-center cursor-pointer rounded-full bg-white/5 hover:bg-white/15 text-white/60 hover:text-white transition-colors text-lg font-light" aria-label="Close">
                         ✕
                     </button>
                     </div>
