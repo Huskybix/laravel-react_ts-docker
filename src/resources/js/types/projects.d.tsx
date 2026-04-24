@@ -21,6 +21,14 @@ export const PROJECTS = [
                 ],
             },
             {
+                title: 'Portfolio',
+                links: [],
+                body: [
+                    `The portfolio page makes use of a JSON data file currently, which I then pull through to render out these expandable tiles. The expansion and contraction itself is handled by GSAP, the fluid Javascript animation library I've also utilized heavily on the landing page of this website, and I've added a hook into presses of the escape key to close them without the need to interact with the close button if preferable.`,
+                    `Using Tailwind I shift the layout of this page on screen sizes below 1024px, primarily to shift the logo to the left above the title rather than keeping it inline. This allows me to render it out more clearly as I then do not need to shrink it down exponentially to fit onto small screens.`,
+                ],
+            },
+            {
                 title: 'The Shop',
                 links: [{ href: '/shop', label: 'Shop', external: true }],
                 body: [
@@ -94,32 +102,29 @@ export const PROJECTS = [
         name: 'BCS Careers Quiz',
         logo: bcsLogo,
         logoClass: 'max-w-[7rem]',
-        stack: ['Umbraco', 'Vue.js', '.NET Core', 'Tailwind', 'SQL Server', 'Node'],
+        stack: ['Umbraco', 'Vue.js', '.NET Core', 'Bootstrap', 'SQL Server', 'Node', 'Graphic Design'],
         sections: [
             {
                 title: 'About',
                 links: [],
                 body: [
-                    'An interactive Vue.js quiz applet that calls back to a careers info page covering a variety of IT career paths.',
-                    'All development was done by me, including graphic edits in GIMP.',
-                    'Both pages are fully responsive and feature several clever design adjustments to look great on any size device.',
+                    `An interactive Vue.js quiz applet that calls back to a careers info page covering a variety of IT career paths. All development on this project was carried out by myself using the client's figma document as a guideline, which also included editing of graphics in the FOSS photo editing software GIMP.`,
                 ],
             },
             {
                 title: 'Main Page',
                 links: [{ href: 'https://www.bcs.org/it-careers/tech-career-quiz/', label: 'Main Page', external: true }],
                 body: [
-                    'An Umbraco razor view utilising Tailwind for layout and styling.',
-                    'The design was provided by the client via Figma.',
-                    'Getting the banners and large role infographics to behave exactly as the client wanted while maintaining responsiveness and reasonable load times required a few clever solutions.',
+                    'This page is fully responsive and features several clever design adjustments to look great on any size device. This was particularly challenging as their designers were very keen to have numerous diagonally divided blocks of content such as the primary banner which are rather tricky to scale properly without the angle of the diagonal division changing. I solved the issue in this case by cutting off the right side of the original full-screen banner, then edited a white stripe and transparent diagonal chunk onto it on the upper-left side. I then rendered this new image aligned to the right side of the full width banner container, the entirety of which has the black background required by the left side of the original design, thus successfully matching the design whilst allowing the right side and its built-in diagonal divider to be pushed left as the screen contracts rather than have a single solid banner which scales awkwardly.',
+                    `The role infographics themselves are largely defined by bootstrap's column definitions. Using these I segmented out the left side of each for the larger information section, the top heading of which uses absolutely positioned coloured elements and clip-paths to create the layered effect without the need to render out additional images. Through careful content ordering the entire infographic will also collapse down into a single column on smaller devices to maintain responsiveness, simultaneously hiding the large portrait cut-outs (which were also edited by myself) to match their mobile designs.`,
                 ],
             },
             {
                 title: 'Quiz Applet',
                 links: [{ href: 'https://www.bcs.org/it-careers/tech-career-quiz/quiz/', label: 'Quiz Applet', external: true }],
                 body: [
-                    'Written in Vue.js as a standalone application for an efficient, seamless user experience across devices.',
-                    'The app keeps a cumulative score across answers with points allocated per role. Final scores get passed to a back-end API which reroutes the user to the careers page with their top result expanded.',
+                    'I wrote this interactive app using Vue.js. The answer to each question allocates a varying amount of points to one or more possible roles which I then simply keep a running score against. I also keep track of which answers were selected so that if the user should decide to navigate back through the pages of the app before submitting the correct ones remain highlighted.',
+                    'When submitted, the app sends then directs the user to a results page with an attached query string based on their scores. This string then dictates which primary role infographic is displayed, and also defines their closest four runner-up results.',
                 ],
             },
         ],
@@ -135,12 +140,34 @@ export const PROJECTS = [
                 title: 'About',
                 links: [{ href: 'https://firebrand.training/', label: 'Main Website', external: true }],
                 body: [
-                    'Firebrand are a multinational training and certification provider. Their site is built on Umbraco and our team reworked it from the ground up, utilizing a well-optimized API we built from scratch in ASP.NET Core.',
-                    'The site has since changed hands, but the core architecture our team built remains largely intact.',
-                    'The main challenge was the vast number of regions served, requiring region-specific data and translations while maintaining consistency. A robust, well-planned API was essential to maintain speed and performance.',
-                    'I also worked on Angular CMS templates here, as with Stable Micro Systems.',
+                    'Firebrand are a multinational training and certification provider. Their site is built on Umbraco and our team reworked it from the ground up, utilizing a well-optimized API we built from scratch in ASP.NET Core. The site has since changed hands, but the core architecture our team built remains largely intact.',
+                    `The main challenge was the vast number of regions served. Results needed to be returned as region-specific datasets and we also needed to ensure sitewide front-end content translation into as many languages as they needed, for which we employed Umbraco's Dictionary and Language features. Pages can be set to return different editor-defined content dependent on culture, which is in turn defined by querystring adjustments such as /en/ or /de/. Acting in tandem with this, the dictionary allows us to take static hard-coded text and return it dependent on culture as well, with alternative translations for each of these text segments definable in the back end administrative section of Umbraco.`,
                 ],
             },
+            {
+                title: 'Course Pages',
+                links: [{ href: 'https://firebrand.training/uk/courses/certnexus/csc-cyber-secure-coder-certification', label: 'Firebrand Course Page', external: true }],
+                body: [
+                    `The course pages had a number of challenges to overcome. The first was the navigation bar, which needed to detach from the main content and stick to the top of the screen when scrolled past. I accomplished this by combining sticky positioning with a top:0; style, thus allowing it to stick to the top of the page whenever the top of the page was scrolled down to meet it. Inside the bar itself sections were denoted by section headings set in the back-end content editor, and linked directly to their matching content via anchor links.`,
+                    `At the bottom of the page we originally had a table of course dates, which changed drastically dependent on whether the course was currently available and whether the user has made an enquiry into the company's products. If they have, specific dates and prices would become visible, otherwise they would be replaced with a button to direct them to make said enquiry which would open an overlaid pop-up form. If the course was completely unavailable at that time, the table itself would be replaced with a separate enquiry form instead.`,
+                ],
+            },
+            {
+                title: 'Vendor Pages',
+                links: [{ href: 'https://firebrand.training/uk/courses/microsoft', label: 'Firebrand Vendor Page', external: true }],
+                body: [
+                    `Vendor pages held information about course providers and a specific filtered down list of the courses they provide, along with a brief overview of their key information such as duration and learning mode. These lists were pulled from the API and split by culture, since most courses available in one country will differ entirely from those available in another, with a handful of exceptions for online courses.`,
+                    `The requirements on the page itself were fairly simple, primarily just the option for editors to set a vendor logo alongside standard content blocks while the course information table was populated programmatically.`
+                ],
+            },
+            {
+                title: 'Course Category Pages',
+                links: [{ href: 'https://firebrand.training/uk/courses/security', label: 'Firebrand Course Category Page', external: true }],
+                body: [
+                    `The course category pages are similar to the Vendor pages in that they are initially populated based on what type of course they are alongside which culture is set so as to only display courses relevant to the user's country. Depending on the volume of available courses, the results are then further split into paginated results by the page controller.`,
+                    `These pages also required a search function which we incorporated via Elasticsearch, further cutting down results based on partial inference from whatever results were left over after user filtering.`
+                ],
+            }
         ],
     },
 ];
