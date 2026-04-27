@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /var/www/docker-laravel
+            cd /var/www/docker-laravel/src
             sed -i 's|APP_URL=.*|APP_URL=${{ secrets.APP_URL }}|' .env
             sed -i 's|APP_ENV=.*|APP_ENV=${{ secrets.APP_ENV }}|' .env
       - name: Deploy on server
