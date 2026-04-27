@@ -34,19 +34,6 @@ export default function WelcomePage() {
         html.style.setProperty('--hue',   String(start));
         html.style.setProperty('--end',   String(end));
 
-        if (CSS.supports('(animation-timeline: scroll()) and (animation-range: 0% 100%)')) 
-        {
-            return () => {
-                delete html.dataset.theme;
-                delete html.dataset.animate;
-                delete html.dataset.snap;
-                delete html.dataset.syncScrollbar;
-                html.style.removeProperty('--start');
-                html.style.removeProperty('--hue');
-                html.style.removeProperty('--end');
-            };
-        }
-
         gsap.registerPlugin(ScrollTrigger);
 
         gsap.from('.intro-name', {

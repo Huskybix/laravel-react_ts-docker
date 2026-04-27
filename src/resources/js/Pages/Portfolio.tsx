@@ -43,9 +43,9 @@ function ExpandedContent({ project, onClose }: { project: Project; onClose: () =
                                         href={link.href}
                                         target={link.external ? '_blank' : undefined}
                                         rel="noreferrer"
-                                        className="text-primaryOrange underline underline-offset-2 font-semibold text-sm hover:opacity-70 transition-opacity after:content-['_↗']"
+                                        className="text-primaryOrange underline underline-offset-2 font-semibold text-sm hover:opacity-70 transition-opacity"
                                     >
-                                        {link.label}
+                                        {link.label} &#8599;
                                     </a>
                                 ))}
                             </div>

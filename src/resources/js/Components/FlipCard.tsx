@@ -71,7 +71,7 @@ export default function FlipCard() {
                             </p>
                             <p>I adore what I do, and I can't wait to see where it takes me next. Perhaps it'll be on a project with you!</p>
                         </div>
-                        <button className="ml-auto mt-auto flip-btn bg-primaryOrange hover:bg-primaryOrangeDarker text-gray-800 font-semibold" onClick={() => setFlipped((f) => !f)}>Who am I on the flip side? ↩</button>
+                        <button className="ml-auto mt-auto flip-btn bg-primaryOrange hover:bg-primaryOrangeDarker text-gray-800 font-semibold" onClick={() => setFlipped((f) => !f)}>Who am I on the flip side? &#8617;</button>
                     </div>
 
                     {/* Back */}
@@ -124,7 +124,7 @@ export default function FlipCard() {
                                 shot from my modeling process!
                             </p>
                         </div>
-                        <button className="mt-auto ml-auto flip-btn bg-primaryOrange hover:bg-primaryOrangeDarker text-gray-800 font-semibold" onClick={() => setFlipped((f) => !f)}>Back to the serious stuff ↩</button>
+                        <button className="mt-auto ml-auto flip-btn bg-primaryOrange hover:bg-primaryOrangeDarker text-gray-800 font-semibold" onClick={() => setFlipped((f) => !f)}>Back to the serious stuff &#8617;</button>
                     </div>
 
                 </div>
