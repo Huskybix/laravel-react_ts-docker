@@ -46,7 +46,7 @@ export default function FlipCard() {
                     {/* Front */}
                     <div className="flip-card-front overflow-hidden !py-8 px-8 lg:px-12 flex flex-col gap-4">
                         <div className="flip-card-content flex flex-col xl:block">
-                            <img src={selfie} alt="Niall Storie" className="flip-card-image order-last w-full xl:float-left xl:w-1/2 xl:mr-8 mb-0" />
+                            <img src={selfie} alt="Alice Wolfe" className="flip-card-image order-last w-full xl:float-left xl:w-1/2 xl:mr-8 mb-0" />
                             <h2 className="text-primaryOrange text-shadow-2xs text-shadow-gray-500 !text-4xl mb-4">Hey there!<br />Thanks for stopping by.</h2>
                             <p className="mb-4">
                                 I'm a career web developer who got their start doing agency work back in 2012, where I worked alongside companies such as Garrandale, Plasplugs and Groundwork Greater Nottingham to aid in defining their brand online.

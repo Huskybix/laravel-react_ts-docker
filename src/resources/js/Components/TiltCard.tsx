@@ -7,7 +7,8 @@ type TiltCardProps = {
     onOpen: (id: string, cardEl: HTMLDivElement) => void;
 };
 
-export default function TiltCard({ project, onOpen }: TiltCardProps) {
+export default function TiltCard({ project, onOpen }: TiltCardProps) 
+{
     const cardRef = useRef<HTMLDivElement>(null);
     const rafRef  = useRef<number | null>(null);
 
@@ -53,30 +54,20 @@ export default function TiltCard({ project, onOpen }: TiltCardProps) {
     }, [project.id, onOpen]);
 
     return (
-        <div
-            ref={cardRef}
-            data-card-id={project.id}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
-            className="relative flex flex-col items-center justify-center gap-4 select-none rounded-2xl overflow-hidden bg-navBackground border border-white/5 p-8 aspect-[4/3] cursor-pointer"
-            style={{ willChange: 'transform' }}
-        >
-            <div
-                className="pointer-events-none absolute inset-0 rounded-2xl"
-                style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255,183,26,0.07), transparent 70%)' }}
-            />
-            <img
-                src={project.logo}
-                alt={project.name}
-                className={`${project.logoClass} object-contain max-h-20 pointer-events-none`}
-            />
+        <div ref={cardRef} data-card-id={project.id} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onClick={handleClick} className="relative flex flex-col items-center justify-center gap-4 select-none rounded-2xl overflow-hidden bg-navBackground border border-white/5 p-8 aspect-[4/3] cursor-pointer" style={{ willChange: 'transform' }}>
+            
+            <div className="pointer-events-none absolute inset-0 rounded-2xl" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255,183,26,0.07), transparent 70%)' }} />
+            
+            <img src={project.logo} alt={project.name} className={`${project.logoClass} object-contain max-h-20 pointer-events-none`} />
+
             <span className="font-semibold text-white/80 text-sm tracking-wide pointer-events-none">
                 {project.name}
             </span>
+
             <div className="absolute bottom-3 right-4 text-primaryOrange text-base font-semibold tracking-widest pointer-events-none">
                 TAP TO EXPAND
             </div>
+            
         </div>
     );
 }

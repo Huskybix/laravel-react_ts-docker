@@ -92,7 +92,8 @@ function Pyramid({
   return <group ref={groupRef} />;
 }
 
-function DiagonalSpotLight() {
+function DiagonalSpotLight() 
+{
     const lightRef  = useRef<THREE.SpotLight>(null);
     const targetRef = useRef<THREE.Object3D>(new THREE.Object3D());
 

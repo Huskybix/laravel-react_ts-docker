@@ -20,7 +20,8 @@ const WORDS = [
     { text: 'create.',         color: '#ffd43b' },
 ];
 
-export default function WelcomePage() {
+export default function WelcomePage() 
+{
     useEffect(() => {
         const html = document.documentElement;
         const start = Math.floor(Math.random() * 101);
@@ -156,7 +157,7 @@ export default function WelcomePage() {
         <WelcomeLayout>
             <header id="intro-section" className="intro-section fluid pt-[30vh] md:pt-[40vh] lg:pt-[50vh]">
                 <h1 className="intro-hi">Hi there.</h1>
-                <p className="intro-name">I'm <span className="text-primaryOrange">Niall</span>.</p>
+                <p className="intro-name">I'm <span className="text-primaryOrange">Alice</span>.</p>
                 <p className="intro-role !text-center">
                 <Sparkles>Web Developer</Sparkles>
                 </p>
@@ -200,7 +201,7 @@ export default function WelcomePage() {
                 </section>
             </main>
 
-            <footer>Niall Storie © 2026</footer>
+            <footer>Alice Wolfe © 2026</footer>
         </WelcomeLayout>
     );
 }

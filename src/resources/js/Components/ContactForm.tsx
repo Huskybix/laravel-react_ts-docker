@@ -34,9 +34,6 @@ export default function Contact()
         <>            
             <div className="flex flex-col gap-8 w-full w-full lg:max-w-[38rem]">
                 <span className="flex flex-row gap-2">
-                    <a href="https://www.linkedin.com/in/niall-storie-a74ab53b7/" target="_blank">
-                        <img src={linkedInLogo} alt="LinkedIn Link" className="w-8 h-8" />
-                    </a>
                     <a href="https://github.com/huskybix" target="_blank">
                         <img src={gitLogo} alt="Github Link" className="w-8 h-8" />
                     </a>
